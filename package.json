@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "prettier": "prettier --check ."
   },
   "dependencies": {
     "@sanity/icons": "^3.4.0",
@@ -25,6 +26,7 @@
     "@types/react-dom": "^18",
     "eslint": "^8",
     "eslint-config-next": "14.2.13",
+    "prettier": "^3.3.3",
     "typescript": "^5"
   }
 }
