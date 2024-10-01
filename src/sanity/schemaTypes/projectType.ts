@@ -34,13 +34,14 @@ export const projectType = defineType({
       ],
     }),
     defineField({
+      name: "position",
+      type: "reference",
+      to: [{ type: "position" }],
+    }),
+    defineField({
       name: "technologies",
       type: "array",
       of: [defineArrayMember({ type: "reference", to: { type: "technology" } })],
-    }),
-    defineField({
-      name: "publishedAt",
-      type: "datetime",
     }),
     defineField({
       name: "body",
@@ -51,6 +52,16 @@ export const projectType = defineType({
     select: {
       title: "title",
       media: "mainImage",
+      position: "position.title",
+      company: "position.company.name",
+    },
+    prepare(selection) {
+      const { title, media, position, company } = selection;
+      return {
+        title,
+        media,
+        subtitle: `${position} at ${company}`,
+      };
     },
   },
 });

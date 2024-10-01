@@ -19,9 +19,5 @@ export const technologyType = defineType({
         source: "title",
       },
     }),
-    defineField({
-      name: "description",
-      type: "text",
-    }),
   ],
 });

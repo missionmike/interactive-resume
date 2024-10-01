@@ -7,4 +7,15 @@ import { defineCliConfig } from "sanity/cli";
 const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID;
 const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET;
 
-export default defineCliConfig({ api: { projectId, dataset } });
+export default defineCliConfig({
+  api: { projectId, dataset },
+  // @see https://www.sanity.io/docs/graphql
+  graphql: [
+    {
+      playground: true,
+      //   tag: "experiment",
+      //   workspace: "staging",
+      //   id: "schema-experiment",
+    },
+  ],
+});
