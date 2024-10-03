@@ -39,7 +39,7 @@ export const projectType = defineType({
       to: [{ type: "position" }],
     }),
     defineField({
-      name: "technologies",
+      name: "technology",
       type: "array",
       of: [defineArrayMember({ type: "reference", to: { type: "technology" } })],
     }),

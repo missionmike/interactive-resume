@@ -774,7 +774,7 @@
         },
         "optional": true
       },
-      "technologies": {
+      "technology": {
         "type": "objectAttribute",
         "value": {
           "type": "array",

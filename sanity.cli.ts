@@ -12,10 +12,7 @@ export default defineCliConfig({
   // @see https://www.sanity.io/docs/graphql
   graphql: [
     {
-      playground: true,
-      //   tag: "experiment",
-      //   workspace: "staging",
-      //   id: "schema-experiment",
+      playground: false,
     },
   ],
 });

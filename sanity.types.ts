@@ -138,7 +138,7 @@ export type Project = {
     _weak?: boolean;
     [internalGroqTypeReferenceTo]?: "position";
   };
-  technologies?: Array<{
+  technology?: Array<{
     _ref: string;
     _type: "reference";
     _weak?: boolean;
