@@ -1,4 +1,4 @@
-import { Company, Technology } from "../../../../sanity.types";
+import { Company, Technology } from "../../../sanity.types";
 
 import { PositionWithRefs } from "@/graphql/getPositions";
 import { ProjectWithRefs } from "@/graphql/getProjects";

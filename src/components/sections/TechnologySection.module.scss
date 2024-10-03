@@ -1,0 +1,12 @@
+.tagContainer {
+  display: flex;
+  gap: 10px;
+}
+
+.tagItem {
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: #ff73cf;
+  color: white;
+  font-weight: bold;
+}

@@ -30,9 +30,26 @@ body {
   margin: 0;
 }
 
+section {
+  margin-top: 16px;
+}
+
 a {
   color: inherit;
   text-decoration: none;
+}
+
+h2 {
+  margin-bottom: 16px;
+}
+
+h3,
+h4 {
+  margin-bottom: 10px;
+}
+
+ul {
+  list-style-position: inside;
 }
 
 @media (prefers-color-scheme: dark) {

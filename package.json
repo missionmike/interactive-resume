@@ -22,6 +22,7 @@
     "react": "^18",
     "react-dom": "^18",
     "sanity": "^3.58.0",
+    "sass": "^1.79.4",
     "styled-components": "^6.1.13"
   },
   "devDependencies": {

@@ -3,10 +3,10 @@ import { AllPosition, GET_POSITIONS } from "@/graphql/getPositions";
 import { AllProject, GET_PROJECTS } from "@/graphql/getProjects";
 import { AllTechnology, GET_TECHNOLOGY } from "@/graphql/getTechnology";
 
-import { TechnologySection } from "@/components/sections/Technology/TechnologySection";
-import { WorkExperienceSection } from "@/components/sections/WorkExperience/WorkExperienceSection";
+import { TechnologySection } from "@/components/sections/TechnologySection";
+import { WorkExperienceSection } from "@/components/sections/WorkExperienceSection";
 import { getApolloClient } from "@/lib/apolloClient";
-import styles from "./page.module.css";
+import styles from "./page.module.scss";
 
 export default async function Page() {
   const client = getApolloClient();
@@ -38,7 +38,7 @@ export default async function Page() {
       <h1>
         Michael R. Dinerstein
         <br />
-        Senior Full Stack Software Engineer
+        <span>Senior Full Stack Software Engineer</span>
       </h1>
       <TechnologySection allTechnologyData={allTechnologyData} />
       <WorkExperienceSection
