@@ -1,5 +1,3 @@
-// ./src/sanity/lib/client.ts
-
 import "server-only";
 
 import { apiVersion, dataset, projectId } from "../env";
