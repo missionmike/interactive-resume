@@ -4,6 +4,7 @@ import { AllProject, GET_PROJECTS } from "@/graphql/getProjects";
 import { AllTechnology, GET_TECHNOLOGY } from "@/graphql/getTechnology";
 
 import { TechnologySection } from "@/components/sections/Technology/TechnologySection";
+import { WorkExperienceSection } from "@/components/sections/WorkExperience/WorkExperienceSection";
 import { getApolloClient } from "@/lib/apolloClient";
 import styles from "./page.module.css";
 
@@ -40,45 +41,12 @@ export default async function Page() {
         Senior Full Stack Software Engineer
       </h1>
       <TechnologySection allTechnologyData={allTechnologyData} />
-      <section>
-        <h2>Work Experience</h2>
-        {allCompanyData.allCompany.map((company) => (
-          <div key={`company-${company._id}`}>
-            <h3>{company.name}</h3>
-            {allPositionData.allPosition.map((position) => {
-              if (position?.company?._id !== company._id) return;
-
-              return (
-                <div key={`position-${position._id}`}>
-                  <h4>{position.title}</h4>
-                  <ul>
-                    {allProjectData.allProject.map((project) => {
-                      if (project?.position?._id !== position._id) return;
-
-                      const technologyTitles = allTechnologyData.allTechnology.map((technology) => {
-                        if (
-                          !project.technology
-                            ?.map((technology) => technology._id)
-                            .includes(technology._id)
-                        )
-                          return;
-
-                        return technology.title;
-                      });
-
-                      return (
-                        <li key={`project-${project._id}`}>
-                          {project.title} <span>{technologyTitles.join(", ")}</span>
-                        </li>
-                      );
-                    })}
-                  </ul>
-                </div>
-              );
-            })}
-          </div>
-        ))}
-      </section>
+      <WorkExperienceSection
+        allCompany={allCompanyData.allCompany}
+        allPosition={allPositionData.allPosition}
+        allProject={allProjectData.allProject}
+        allTechnology={allTechnologyData.allTechnology}
+      />
     </main>
   );
 }

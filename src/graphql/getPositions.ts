@@ -16,6 +16,8 @@ export const GET_POSITIONS = gql`
   }
 `;
 
+export type PositionWithRefs = Omit<Position, "company"> & { company: Company };
+
 export type AllPosition = {
-  allPosition: (Omit<Position, "company"> & { company: Company })[];
+  allPosition: PositionWithRefs[];
 };

@@ -23,9 +23,11 @@ export const GET_PROJECTS = gql`
   }
 `;
 
+export type ProjectWithRefs = Omit<Project, "position" | "technology"> & {
+  position: Position;
+  technology: Technology[];
+};
+
 export type AllProject = {
-  allProject: (Omit<Project, "position" | "technology"> & {
-    position: Position;
-    technology: Technology[];
-  })[];
+  allProject: ProjectWithRefs[];
 };
