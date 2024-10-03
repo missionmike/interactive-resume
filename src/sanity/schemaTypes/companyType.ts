@@ -1,6 +1,7 @@
 import { defineArrayMember, defineField, defineType } from "sanity";
 
 import { CaseIcon } from "@sanity/icons";
+import { formatDate } from "@/lib/format";
 
 export const companyType = defineType({
   name: "company",
@@ -40,18 +41,9 @@ export const companyType = defineType({
       dateEnd: "dateEnd",
     },
     prepare({ companyName, dateStart, dateEnd }) {
-      const dateStartFormatted = new Date(dateStart).toLocaleString("en-US", {
-        month: "short",
-        year: "numeric",
-      });
-      const dateEndFormatted = new Date(dateEnd).toLocaleString("en-US", {
-        month: "short",
-        year: "numeric",
-      });
-
       return {
-        companyName,
-        subtitle: `${dateStartFormatted} - ${dateEndFormatted}`,
+        title: companyName,
+        subtitle: `${formatDate(dateStart)} - ${formatDate(dateEnd)}`,
       };
     },
   },

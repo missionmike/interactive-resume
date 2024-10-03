@@ -4,7 +4,7 @@ import { AllProject, GET_PROJECTS } from "@/graphql/getProjects";
 import { AllTechnology, GET_TECHNOLOGY } from "@/graphql/getTechnology";
 
 import { TechnologySection } from "@/components/sections/TechnologySection";
-import { WorkExperienceSection } from "@/components/sections/WorkExperienceSection";
+import { WorkExperienceSection } from "@/components/sections/WorkExperience/WorkExperienceSection";
 import { getApolloClient } from "@/lib/apolloClient";
 import styles from "./page.module.scss";
 
