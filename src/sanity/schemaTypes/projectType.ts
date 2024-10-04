@@ -13,13 +13,6 @@ export const projectType = defineType({
       type: "string",
     }),
     defineField({
-      name: "slug",
-      type: "slug",
-      options: {
-        source: "title",
-      },
-    }),
-    defineField({
       name: "mainImage",
       type: "image",
       options: {

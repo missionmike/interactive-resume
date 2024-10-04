@@ -13,11 +13,34 @@ export const technologyType = defineType({
       type: "string",
     }),
     defineField({
-      name: "slug",
-      type: "slug",
+      name: "yearStart",
+      type: "date",
       options: {
-        source: "title",
+        dateFormat: "YYYY",
       },
     }),
   ],
+  preview: {
+    select: {
+      title: "title",
+      yearStart: "yearStart",
+    },
+    prepare({ title, yearStart }) {
+      let subtitle = "";
+
+      try {
+        const currentDateYear = new Date().getFullYear();
+        const pastDateYear = parseInt(yearStart.split("-")[0], 10);
+        const yearsExperience = currentDateYear - pastDateYear;
+        subtitle = `${yearsExperience} years (since ${pastDateYear})`;
+      } catch {
+        // Error parsing the date, use default.
+      }
+
+      return {
+        title,
+        subtitle,
+      };
+    },
+  },
 });

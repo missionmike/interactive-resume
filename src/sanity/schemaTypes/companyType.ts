@@ -14,13 +14,6 @@ export const companyType = defineType({
       type: "string",
     }),
     defineField({
-      name: "slug",
-      type: "slug",
-      options: {
-        source: "name",
-      },
-    }),
-    defineField({
       name: "dateStart",
       type: "date",
     }),

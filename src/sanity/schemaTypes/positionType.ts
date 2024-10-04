@@ -13,13 +13,6 @@ export const positionType = defineType({
       type: "string",
     }),
     defineField({
-      name: "slug",
-      type: "slug",
-      options: {
-        source: "title",
-      },
-    }),
-    defineField({
       name: "company",
       type: "reference",
       to: [{ type: "company" }],
