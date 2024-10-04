@@ -3,6 +3,7 @@ import { AllPosition, GET_POSITIONS } from "@/graphql/getPositions";
 import { AllProject, GET_PROJECTS } from "@/graphql/getProjects";
 import { AllTechnology, GET_TECHNOLOGY } from "@/graphql/getTechnology";
 
+import { MainProvider } from "@/context/MainContext";
 import { TechnologySection } from "@/components/sections/TechnologySection";
 import { WorkExperienceSection } from "@/components/sections/WorkExperience/WorkExperienceSection";
 import { getApolloClient } from "@/lib/apolloClient";
@@ -34,19 +35,21 @@ export default async function Page() {
   });
 
   return (
-    <main className={styles.main}>
-      <h1>
-        Michael R. Dinerstein
-        <br />
-        <span>Senior Full Stack Software Engineer</span>
-      </h1>
-      <TechnologySection allTechnologyData={allTechnologyData} />
-      <WorkExperienceSection
-        allCompany={allCompanyData.allCompany}
-        allPosition={allPositionData.allPosition}
-        allProject={allProjectData.allProject}
-        allTechnology={allTechnologyData.allTechnology}
-      />
-    </main>
+    <MainProvider
+      allTechnology={allTechnologyData.allTechnology}
+      allCompany={allCompanyData.allCompany}
+      allPosition={allPositionData.allPosition}
+      allProject={allProjectData.allProject}
+    >
+      <main className={styles.main}>
+        <h1>
+          Michael R. Dinerstein
+          <br />
+          <span>Senior Full Stack Software Engineer</span>
+        </h1>
+        <TechnologySection />
+        <WorkExperienceSection />
+      </main>
+    </MainProvider>
   );
 }

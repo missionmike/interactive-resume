@@ -1,18 +1,21 @@
+"use client";
+
+import { MainContext } from "@/context/MainContext";
 import { PositionWithRefs } from "@/graphql/getPositions";
 import { ProjectWithRefs } from "@/graphql/getProjects";
-import { Technology } from "../../../../sanity.types";
 import { formatDate } from "@/lib/format";
 import styles from "./Positions.module.scss";
+import { useContext } from "react";
 
 export const Positions = ({
   positions,
   projects,
-  allTechnology,
 }: {
   positions: PositionWithRefs[];
   projects: ProjectWithRefs[];
-  allTechnology: Technology[];
 }) => {
+  const { allTechnology } = useContext(MainContext);
+
   return (
     <div className={styles.container}>
       {positions.map((position) => (

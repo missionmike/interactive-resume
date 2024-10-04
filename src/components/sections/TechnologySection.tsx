@@ -1,16 +1,17 @@
-import { Technology } from "../../../sanity.types";
-import styles from "./TechnologySection.module.scss";
+"use client";
 
-export const TechnologySection = ({
-  allTechnologyData,
-}: {
-  allTechnologyData: { allTechnology: Technology[] };
-}) => {
+import { MainContext } from "@/context/MainContext";
+import styles from "./TechnologySection.module.scss";
+import { useContext } from "react";
+
+export const TechnologySection = () => {
+  const { allTechnology } = useContext(MainContext);
+
   return (
     <section className={styles.section}>
       <h2>Technology</h2>
       <div className={styles.tagContainer}>
-        {allTechnologyData.allTechnology.map((technology) => {
+        {allTechnology.map((technology) => {
           return (
             <div key={`technology-${technology.title}`} className={styles.tagItem}>
               {technology.title}
