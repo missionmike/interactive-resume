@@ -9,7 +9,7 @@ import { useContext } from "react";
 export const SkillSection = () => {
   const { skills } = useContext(MainContext);
 
-  let skillsByYear: {
+  const skillsByYear: {
     [year: string]: Skill[];
   } = {};
 
