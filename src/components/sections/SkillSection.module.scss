@@ -1,13 +1,26 @@
-.tagContainer {
-  display: flex;
-  flex-wrap: wrap;
+.skillsContainer {
+  display: grid;
+  grid-template-columns: auto 1fr;
   width: 100%;
-  gap: 10px;
+  gap: 5px;
+  margin-top: 5px;
 }
 
-.tagItem {
+.yearsPrefix {
+  font-weight: bold;
+}
+
+.skillItemContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.skillItem {
   display: flex;
   padding: 4px 14px;
+  margin: 0;
+  line-height: 1rem;
   background-color: #ff73cf;
   color: white;
   font-weight: bold;

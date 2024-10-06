@@ -6,6 +6,7 @@ export const GET_SKILLS = gql`
     allSkill {
       _id
       title
+      yearStart
     }
   }
 `;
