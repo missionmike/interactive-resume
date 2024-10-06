@@ -68,6 +68,12 @@ export type Geopoint = {
   alt?: number;
 };
 
+export type Slug = {
+  _type: "slug";
+  current?: string;
+  source?: string;
+};
+
 export type BlockContent = Array<
   | {
       children?: Array<{
@@ -102,14 +108,14 @@ export type BlockContent = Array<
     }
 >;
 
-export type Technology = {
+export type Skill = {
   _id: string;
-  _type: "technology";
+  _type: "skill";
   _createdAt: string;
   _updatedAt: string;
   _rev: string;
   title?: string;
-  slug?: Slug;
+  yearStart?: string;
 };
 
 export type Project = {
@@ -119,7 +125,6 @@ export type Project = {
   _updatedAt: string;
   _rev: string;
   title?: string;
-  slug?: Slug;
   mainImage?: {
     asset?: {
       _ref: string;
@@ -138,12 +143,12 @@ export type Project = {
     _weak?: boolean;
     [internalGroqTypeReferenceTo]?: "position";
   };
-  technology?: Array<{
+  skills?: Array<{
     _ref: string;
     _type: "reference";
     _weak?: boolean;
     _key: string;
-    [internalGroqTypeReferenceTo]?: "technology";
+    [internalGroqTypeReferenceTo]?: "skill";
   }>;
   body?: BlockContent;
 };
@@ -212,7 +217,6 @@ export type Position = {
   _updatedAt: string;
   _rev: string;
   title?: string;
-  slug?: Slug;
   company?: {
     _ref: string;
     _type: "reference";
@@ -230,7 +234,6 @@ export type Company = {
   _updatedAt: string;
   _rev: string;
   name?: string;
-  slug?: Slug;
   dateStart?: string;
   dateEnd?: string;
   positions?: Array<{
@@ -242,20 +245,15 @@ export type Company = {
   }>;
 };
 
-export type Slug = {
-  _type: "slug";
-  current?: string;
-  source?: string;
-};
-
 export type AllSanitySchemaTypes =
   | SanityImagePaletteSwatch
   | SanityImagePalette
   | SanityImageDimensions
   | SanityFileAsset
   | Geopoint
+  | Slug
   | BlockContent
-  | Technology
+  | Skill
   | Project
   | SanityImageCrop
   | SanityImageHotspot
@@ -263,6 +261,5 @@ export type AllSanitySchemaTypes =
   | SanityAssetSourceData
   | SanityImageMetadata
   | Position
-  | Company
-  | Slug;
+  | Company;
 export declare const internalGroqTypeReferenceTo: unique symbol;

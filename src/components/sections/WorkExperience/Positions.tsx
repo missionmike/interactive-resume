@@ -14,7 +14,7 @@ export const Positions = ({
   positions: PositionWithRefs[];
   projects: ProjectWithRefs[];
 }) => {
-  const { allTechnology } = useContext(MainContext);
+  const { allSkill } = useContext(MainContext);
 
   return (
     <div className={styles.container}>
@@ -32,18 +32,15 @@ export const Positions = ({
             {projects.map((project) => {
               if (project?.position?._id !== position._id) return;
 
-              const technologyTitles = allTechnology.map((technology) => {
-                if (
-                  !project.technology?.map((technology) => technology._id).includes(technology._id)
-                )
-                  return;
+              const skillTitles = allSkill.map((skill) => {
+                if (!project.skills?.map((skill) => skill._id).includes(skill._id)) return;
 
-                return technology.title;
+                return skill.title;
               });
 
               return (
                 <li key={`project-${project._id}`}>
-                  {project.title} <span>{technologyTitles.join(", ")}</span>
+                  {project.title} <span>{skillTitles.join(", ")}</span>
                 </li>
               );
             })}

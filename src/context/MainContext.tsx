@@ -1,6 +1,6 @@
 "use client";
 
-import { Company, Technology } from "../../sanity.types";
+import { Company, Skill } from "../../sanity.types";
 
 import { PositionWithRefs } from "@/graphql/getPositions";
 import { ProjectWithRefs } from "@/graphql/getProjects";
@@ -10,14 +10,14 @@ interface MainContextProps {
   allCompany: Company[];
   allPosition: PositionWithRefs[];
   allProject: ProjectWithRefs[];
-  allTechnology: Technology[];
+  allSkill: Skill[];
 }
 
 export const MainContext = createContext<MainContextProps>({
   allCompany: [],
   allPosition: [],
   allProject: [],
-  allTechnology: [],
+  allSkill: [],
 });
 
 export const MainProvider = ({
@@ -25,10 +25,10 @@ export const MainProvider = ({
   allCompany,
   allPosition,
   allProject,
-  allTechnology,
+  allSkill,
 }: MainContextProps & { children?: React.ReactNode }) => {
   return (
-    <MainContext.Provider value={{ allCompany, allPosition, allProject, allTechnology }}>
+    <MainContext.Provider value={{ allCompany, allPosition, allProject, allSkill }}>
       {children}
     </MainContext.Provider>
   );

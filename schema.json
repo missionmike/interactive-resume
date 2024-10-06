@@ -326,6 +326,36 @@
     }
   },
   {
+    "name": "slug",
+    "type": "type",
+    "value": {
+      "type": "object",
+      "attributes": {
+        "_type": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string",
+            "value": "slug"
+          }
+        },
+        "current": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string"
+          },
+          "optional": true
+        },
+        "source": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string"
+          },
+          "optional": true
+        }
+      }
+    }
+  },
+  {
     "name": "blockContent",
     "type": "type",
     "value": {
@@ -574,7 +604,7 @@
     }
   },
   {
-    "name": "technology",
+    "name": "skill",
     "type": "document",
     "attributes": {
       "_id": {
@@ -587,7 +617,7 @@
         "type": "objectAttribute",
         "value": {
           "type": "string",
-          "value": "technology"
+          "value": "skill"
         }
       },
       "_createdAt": {
@@ -615,11 +645,10 @@
         },
         "optional": true
       },
-      "slug": {
+      "yearStart": {
         "type": "objectAttribute",
         "value": {
-          "type": "inline",
-          "name": "slug"
+          "type": "string"
         },
         "optional": true
       }
@@ -664,14 +693,6 @@
         "type": "objectAttribute",
         "value": {
           "type": "string"
-        },
-        "optional": true
-      },
-      "slug": {
-        "type": "objectAttribute",
-        "value": {
-          "type": "inline",
-          "name": "slug"
         },
         "optional": true
       },
@@ -774,7 +795,7 @@
         },
         "optional": true
       },
-      "technology": {
+      "skills": {
         "type": "objectAttribute",
         "value": {
           "type": "array",
@@ -802,7 +823,7 @@
                 "optional": true
               }
             },
-            "dereferencesTo": "technology",
+            "dereferencesTo": "skill",
             "rest": {
               "type": "object",
               "attributes": {
@@ -1207,14 +1228,6 @@
         },
         "optional": true
       },
-      "slug": {
-        "type": "objectAttribute",
-        "value": {
-          "type": "inline",
-          "name": "slug"
-        },
-        "optional": true
-      },
       "company": {
         "type": "objectAttribute",
         "value": {
@@ -1303,14 +1316,6 @@
         },
         "optional": true
       },
-      "slug": {
-        "type": "objectAttribute",
-        "value": {
-          "type": "inline",
-          "name": "slug"
-        },
-        "optional": true
-      },
       "dateStart": {
         "type": "objectAttribute",
         "value": {
@@ -1368,36 +1373,6 @@
           }
         },
         "optional": true
-      }
-    }
-  },
-  {
-    "name": "slug",
-    "type": "type",
-    "value": {
-      "type": "object",
-      "attributes": {
-        "_type": {
-          "type": "objectAttribute",
-          "value": {
-            "type": "string",
-            "value": "slug"
-          }
-        },
-        "current": {
-          "type": "objectAttribute",
-          "value": {
-            "type": "string"
-          },
-          "optional": true
-        },
-        "source": {
-          "type": "objectAttribute",
-          "value": {
-            "type": "string"
-          },
-          "optional": true
-        }
       }
     }
   }

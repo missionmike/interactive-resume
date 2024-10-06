@@ -1,10 +1,10 @@
 import { AllCompany, GET_COMPANIES } from "@/graphql/getCompanies";
 import { AllPosition, GET_POSITIONS } from "@/graphql/getPositions";
 import { AllProject, GET_PROJECTS } from "@/graphql/getProjects";
-import { AllTechnology, GET_TECHNOLOGY } from "@/graphql/getTechnology";
+import { AllSkill, GET_SKILLS } from "@/graphql/getSkills";
 
 import { MainProvider } from "@/context/MainContext";
-import { TechnologySection } from "@/components/sections/TechnologySection";
+import { SkillSection } from "@/components/sections/SkillSection";
 import { WorkExperienceSection } from "@/components/sections/WorkExperience/WorkExperienceSection";
 import { getApolloClient } from "@/lib/apolloClient";
 import styles from "./page.module.scss";
@@ -30,13 +30,13 @@ export default async function Page() {
     },
   });
 
-  const { data: allTechnologyData } = await client.query<AllTechnology>({
-    query: GET_TECHNOLOGY,
+  const { data: allSkillData } = await client.query<AllSkill>({
+    query: GET_SKILLS,
   });
 
   return (
     <MainProvider
-      allTechnology={allTechnologyData.allTechnology}
+      allSkill={allSkillData.allSkill}
       allCompany={allCompanyData.allCompany}
       allPosition={allPositionData.allPosition}
       allProject={allProjectData.allProject}
@@ -47,7 +47,7 @@ export default async function Page() {
           <br />
           <span>Senior Full Stack Software Engineer</span>
         </h1>
-        <TechnologySection />
+        <SkillSection />
         <WorkExperienceSection />
       </main>
     </MainProvider>

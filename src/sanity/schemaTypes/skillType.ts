@@ -2,9 +2,9 @@ import { defineField, defineType } from "sanity";
 
 import { TagIcon } from "@sanity/icons";
 
-export const technologyType = defineType({
-  name: "technology",
-  title: "Technology",
+export const skillType = defineType({
+  name: "skill",
+  title: "Skill",
   type: "document",
   icon: TagIcon,
   fields: [

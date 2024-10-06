@@ -1,4 +1,4 @@
-import { Position, Project, Technology } from "../../sanity.types";
+import { Position, Project, Skill } from "../../sanity.types";
 
 import { gql } from "@apollo/client";
 
@@ -16,16 +16,16 @@ export const GET_PROJECTS = gql`
           url
         }
       }
-      technology {
+      skills {
         _id
       }
     }
   }
 `;
 
-export type ProjectWithRefs = Omit<Project, "position" | "technology"> & {
+export type ProjectWithRefs = Omit<Project, "position" | "skills"> & {
   position: Position;
-  technology: Technology[];
+  skills: Skill[];
 };
 
 export type AllProject = {
