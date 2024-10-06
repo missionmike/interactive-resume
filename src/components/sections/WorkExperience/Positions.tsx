@@ -32,11 +32,14 @@ export const Positions = ({
             {projects.map((project) => {
               if (project?.position?._id !== position._id) return;
 
-              const skillTitles = allSkill.map((skill) => {
-                if (!project.skills?.map((skill) => skill._id).includes(skill._id)) return;
+              const skillTitles = project?.skills
+                ? allSkill.map((skill) => {
+                    // Only display relevant skills linked to the project.
+                    if (!project.skills?.map((s) => s._id).includes(skill._id)) return;
 
-                return skill.title;
-              });
+                    return skill.title;
+                  })
+                : [];
 
               return (
                 <li key={`project-${project._id}`}>

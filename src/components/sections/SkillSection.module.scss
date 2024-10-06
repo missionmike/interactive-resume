@@ -1,13 +1,19 @@
 .tagContainer {
   display: flex;
+  flex-wrap: wrap;
+  width: 100%;
   gap: 10px;
 }
 
 .tagItem {
-  display: inline-block;
+  display: flex;
   padding: 4px 14px;
   background-color: #ff73cf;
   color: white;
   font-weight: bold;
   font-size: 0.9em;
+
+  @media (prefers-color-scheme: dark) {
+    background-color: #b40878;
+  }
 }
