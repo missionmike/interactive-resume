@@ -36,10 +36,10 @@ export default async function Page() {
 
   return (
     <MainProvider
-      allSkill={allSkillData.allSkill}
-      allCompany={allCompanyData.allCompany}
-      allPosition={allPositionData.allPosition}
-      allProject={allProjectData.allProject}
+      companies={allCompanyData.allCompany}
+      positions={allPositionData.allPosition}
+      projects={allProjectData.allProject}
+      skills={allSkillData.allSkill}
     >
       <main className={styles.main}>
         <h1>

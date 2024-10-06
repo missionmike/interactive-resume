@@ -7,28 +7,28 @@ import { ProjectWithRefs } from "@/graphql/getProjects";
 import { createContext } from "react";
 
 interface MainContextProps {
-  allCompany: Company[];
-  allPosition: PositionWithRefs[];
-  allProject: ProjectWithRefs[];
-  allSkill: Skill[];
+  companies: Company[];
+  positions: PositionWithRefs[];
+  projects: ProjectWithRefs[];
+  skills: Skill[];
 }
 
 export const MainContext = createContext<MainContextProps>({
-  allCompany: [],
-  allPosition: [],
-  allProject: [],
-  allSkill: [],
+  companies: [],
+  positions: [],
+  projects: [],
+  skills: [],
 });
 
 export const MainProvider = ({
   children,
-  allCompany,
-  allPosition,
-  allProject,
-  allSkill,
+  companies,
+  positions,
+  projects,
+  skills,
 }: MainContextProps & { children?: React.ReactNode }) => {
   return (
-    <MainContext.Provider value={{ allCompany, allPosition, allProject, allSkill }}>
+    <MainContext.Provider value={{ companies, positions, projects, skills }}>
       {children}
     </MainContext.Provider>
   );

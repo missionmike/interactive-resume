@@ -14,7 +14,7 @@ export const Positions = ({
   positions: PositionWithRefs[];
   projects: ProjectWithRefs[];
 }) => {
-  const { allSkill } = useContext(MainContext);
+  const { skills } = useContext(MainContext);
 
   return (
     <div className={styles.container}>
@@ -33,7 +33,7 @@ export const Positions = ({
               if (project?.position?._id !== position._id) return;
 
               const skillTitles = project?.skills
-                ? allSkill.map((skill) => {
+                ? skills.map((skill) => {
                     // Only display relevant skills linked to the project.
                     if (!project.skills?.map((s) => s._id).includes(skill._id)) return;
 
