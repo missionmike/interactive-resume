@@ -8,12 +8,21 @@
     grid-template-columns: 60% 1fr;
     align-items: center;
     gap: 20px;
+    transition: opacity 250ms ease;
 
     .projectTagContainer {
       display: flex;
       align-items: flex-start;
       flex-wrap: wrap;
       gap: 4px;
+    }
+
+    &[data-selected="true"] {
+      opacity: 1;
+    }
+
+    &[data-selected="false"] {
+      opacity: 0.5;
     }
   }
 

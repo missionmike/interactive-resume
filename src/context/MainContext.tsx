@@ -1,23 +1,30 @@
 "use client";
 
 import { Company, Skill } from "../../sanity.types";
+import { SetStateAction, createContext, useState } from "react";
 
 import { PositionWithRefs } from "@/graphql/getPositions";
 import { ProjectWithRefs } from "@/graphql/getProjects";
-import { createContext } from "react";
 
-interface MainContextProps {
+interface MainProviderProps {
   companies: Company[];
   positions: PositionWithRefs[];
   projects: ProjectWithRefs[];
   skills: Skill[];
 }
 
-export const MainContext = createContext<MainContextProps>({
+interface MainContextProps {
+  selectedSkillId: string;
+  setSelectedSkillId: React.Dispatch<SetStateAction<string>>;
+}
+
+export const MainContext = createContext<MainProviderProps & MainContextProps>({
   companies: [],
   positions: [],
   projects: [],
   skills: [],
+  selectedSkillId: "",
+  setSelectedSkillId: () => {},
 });
 
 export const MainProvider = ({
@@ -26,9 +33,13 @@ export const MainProvider = ({
   positions,
   projects,
   skills,
-}: MainContextProps & { children?: React.ReactNode }) => {
+}: MainProviderProps & { children?: React.ReactNode }) => {
+  const [selectedSkillId, setSelectedSkillId] = useState("");
+
   return (
-    <MainContext.Provider value={{ companies, positions, projects, skills }}>
+    <MainContext.Provider
+      value={{ companies, positions, projects, skills, selectedSkillId, setSelectedSkillId }}
+    >
       {children}
     </MainContext.Provider>
   );

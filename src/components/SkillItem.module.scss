@@ -1,4 +1,4 @@
-.tagItem {
+.item {
   padding: 4px 14px;
   margin: 0;
   line-height: 1rem;
@@ -6,8 +6,20 @@
   color: white;
   font-weight: bold;
   font-size: 0.9em;
+  cursor: pointer;
+  opacity: 0.8;
+  transition: all 250ms ease;
+  transform: scale(1);
+
+  &:hover {
+    transform: scale(1.1);
+  }
 
   @media (prefers-color-scheme: dark) {
     background-color: #444;
+  }
+
+  &[data-selected="true"] {
+    opacity: 1;
   }
 }
