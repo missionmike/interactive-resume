@@ -3,10 +3,10 @@
 import { MainContext } from "@/context/MainContext";
 import { Positions } from "./Positions";
 import { formatDate } from "@/lib/format";
-import styles from "./WorkExperienceSection.module.scss";
+import styles from "./WorkExperience.module.scss";
 import { useContext } from "react";
 
-export const WorkExperienceSection = () => {
+export const WorkExperience = () => {
   const { companies, positions, projects } = useContext(MainContext);
 
   return (

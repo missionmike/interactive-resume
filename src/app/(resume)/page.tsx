@@ -4,8 +4,8 @@ import { AllProject, GET_PROJECTS } from "@/graphql/getProjects";
 import { AllSkill, GET_SKILLS } from "@/graphql/getSkills";
 
 import { MainProvider } from "@/context/MainContext";
-import { SkillSection } from "@/components/sections/SkillSection";
-import { WorkExperienceSection } from "@/components/sections/WorkExperience/WorkExperienceSection";
+import { Skills } from "@/components/sections/Skills/Skills";
+import { WorkExperience } from "@/components/sections/WorkExperience/WorkExperience";
 import { getApolloClient } from "@/lib/apolloClient";
 import styles from "./page.module.scss";
 
@@ -47,8 +47,8 @@ export default async function Page() {
           <br />
           <span>Senior Full Stack Software Engineer</span>
         </h1>
-        <SkillSection />
-        <WorkExperienceSection />
+        <Skills />
+        <WorkExperience />
       </main>
     </MainProvider>
   );

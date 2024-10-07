@@ -1,0 +1,25 @@
+.viewOptions {
+  font-size: 0.9em;
+  margin-bottom: 16px;
+
+  button {
+    border: 0;
+    background-color: transparent;
+    text-decoration: none;
+    color: purple;
+    cursor: pointer;
+
+    &:hover {
+      text-decoration: underline;
+    }
+
+    &[data-active="true"] {
+      color: gray;
+      cursor: default;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+}

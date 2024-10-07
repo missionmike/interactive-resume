@@ -1,7 +1,7 @@
 import { MouseEvent, useContext } from "react";
 
 import { MainContext } from "@/context/MainContext";
-import { Skill } from "../../sanity.types";
+import { Skill } from "../../../../sanity.types";
 import styles from "./SkillItem.module.scss";
 
 export const SkillItem = ({ skill }: { skill: Skill }) => {

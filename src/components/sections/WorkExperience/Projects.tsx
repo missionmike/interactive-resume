@@ -2,7 +2,7 @@ import { MainContext } from "@/context/MainContext";
 import { PositionWithRefs } from "@/graphql/getPositions";
 import { ProjectWithRefs } from "@/graphql/getProjects";
 import { Skill } from "../../../../sanity.types";
-import { SkillItem } from "@/components/SkillItem";
+import { SkillItem } from "@/components/sections/Skills/SkillItem";
 import styles from "./Projects.module.scss";
 import { useContext } from "react";
 
