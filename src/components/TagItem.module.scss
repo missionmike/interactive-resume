@@ -1,0 +1,13 @@
+.tagItem {
+  padding: 4px 14px;
+  margin: 0;
+  line-height: 1rem;
+  background-color: lightgray;
+  color: white;
+  font-weight: bold;
+  font-size: 0.9em;
+
+  @media (prefers-color-scheme: dark) {
+    background-color: #444;
+  }
+}

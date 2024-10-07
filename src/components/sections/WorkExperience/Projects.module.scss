@@ -1,0 +1,33 @@
+.projectList {
+  list-style-position: outside;
+  padding-left: 20px;
+
+  li {
+    position: relative;
+    display: grid;
+    grid-template-columns: 60% 1fr;
+    align-items: center;
+    gap: 20px;
+
+    .projectTagContainer {
+      display: flex;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 4px;
+    }
+  }
+
+  li::before {
+    content: "•";
+    position: absolute;
+    display: block;
+    width: 20px;
+    height: 20px;
+    top: 50%;
+    margin-top: -8px;
+    left: -25px;
+    color: white;
+    font-size: 2rem;
+    line-height: 1rem;
+  }
+}

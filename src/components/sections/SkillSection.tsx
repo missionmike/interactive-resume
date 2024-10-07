@@ -3,6 +3,7 @@
 import { MainContext } from "@/context/MainContext";
 import React from "react";
 import { Skill } from "../../../sanity.types";
+import { TagItem } from "../TagItem";
 import styles from "./SkillSection.module.scss";
 import { useContext } from "react";
 
@@ -65,13 +66,11 @@ export const SkillSection = () => {
               <div className={styles.yearsPrefix}>
                 {totalYears ? `${totalYears} year${totalYears > 1 ? "s" : ""}:` : ""}
               </div>
-              <div className={styles.skillItemContainer}>
+              <div className={styles.skillTagsContainer}>
                 {skillsByYear[year].map((skill) => {
-                  return (
-                    <div key={`skill-${skill.title}`} className={styles.skillItem}>
-                      {skill.title}
-                    </div>
-                  );
+                  return skill?.title ? (
+                    <TagItem key={`skill-${skill.title}`} title={skill.title} />
+                  ) : null;
                 })}
               </div>
             </React.Fragment>

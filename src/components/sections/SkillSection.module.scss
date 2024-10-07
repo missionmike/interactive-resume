@@ -1,6 +1,7 @@
 .skillsContainer {
   display: grid;
   grid-template-columns: auto 1fr;
+  grid-template-rows: 30px;
   width: 100%;
   gap: 5px;
   margin-top: 5px;
@@ -8,25 +9,12 @@
 
 .yearsPrefix {
   font-weight: bold;
+  padding: 4px 14px 4px 0;
 }
 
-.skillItemContainer {
+.skillTagsContainer {
   display: flex;
   flex-wrap: wrap;
   gap: 5px;
-}
-
-.skillItem {
-  display: flex;
-  padding: 4px 14px;
-  margin: 0;
-  line-height: 1rem;
-  background-color: #ff73cf;
-  color: white;
-  font-weight: bold;
-  font-size: 0.9em;
-
-  @media (prefers-color-scheme: dark) {
-    background-color: #b40878;
-  }
+  align-items: center;
 }
