@@ -1,10 +1,18 @@
+import { useContext, useEffect, useState } from "react";
+
 import { MainContext } from "@/context/MainContext";
 import { PositionWithRefs } from "@/graphql/getPositions";
 import { ProjectWithRefs } from "@/graphql/getProjects";
 import { Skill } from "../../../../sanity.types";
 import { SkillItem } from "@/components/sections/Skills/SkillItem";
 import styles from "./Projects.module.scss";
-import { useContext } from "react";
+
+// Extending Document to include startViewTransition (since it's not typed yet in TS)
+declare global {
+  interface Document {
+    startViewTransition?: (callback: () => void) => void;
+  }
+}
 
 export const Projects = ({
   position,
@@ -14,10 +22,52 @@ export const Projects = ({
   projects: ProjectWithRefs[];
 }) => {
   const { skills, selectedSkillId } = useContext(MainContext);
+  const [projectList, setProjectList] = useState(projects);
+
+  useEffect(() => {
+    if (!selectedSkillId) {
+      setProjectList(projects);
+      return;
+    }
+
+    const sortedProjectList = [...projectList].sort((a, b) => {
+      const projectSkillsA = a?.skills
+        ? skills.reduce<string[]>((acc, skill) => {
+            if (skill?.title && a.skills.map((s) => s._id).includes(skill._id)) {
+              acc.push(skill._id);
+            }
+            return acc;
+          }, [])
+        : [];
+
+      const projectSkillsB = b?.skills
+        ? skills.reduce<string[]>((acc, skill) => {
+            if (skill?.title && b.skills.map((s) => s._id).includes(skill._id)) {
+              acc.push(skill._id);
+            }
+            return acc;
+          }, [])
+        : [];
+
+      if (projectSkillsA.includes(selectedSkillId) && !projectSkillsB.includes(selectedSkillId))
+        return -1;
+
+      if (!projectSkillsA.includes(selectedSkillId) && projectSkillsB.includes(selectedSkillId))
+        return 1;
+
+      return 0;
+    });
+
+    if (document?.startViewTransition) {
+      document.startViewTransition(() => setProjectList(sortedProjectList));
+    } else {
+      setProjectList(sortedProjectList);
+    }
+  }, [selectedSkillId, projectList, projects, skills]);
 
   return (
     <ul className={styles.projectList}>
-      {projects.map((project) => {
+      {projectList.map((project) => {
         if (project?.position?._id !== position._id) return;
 
         const projectSkills = project?.skills

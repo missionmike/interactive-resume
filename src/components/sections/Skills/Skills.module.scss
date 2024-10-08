@@ -5,9 +5,13 @@
   button {
     border: 0;
     background-color: transparent;
-    text-decoration: none;
+    text-decoration: underline;
     color: purple;
     cursor: pointer;
+
+    @media (prefers-color-scheme: dark) {
+      color: pink;
+    }
 
     &:hover {
       text-decoration: underline;
@@ -16,10 +20,7 @@
     &[data-active="true"] {
       color: gray;
       cursor: default;
-
-      &:hover {
-        text-decoration: none;
-      }
+      text-decoration: none;
     }
   }
 }

@@ -8,7 +8,7 @@
     grid-template-columns: 60% 1fr;
     align-items: center;
     gap: 20px;
-    transition: opacity 250ms ease;
+    transition: all 0.3s ease-in-out;
 
     .projectTagContainer {
       display: flex;
