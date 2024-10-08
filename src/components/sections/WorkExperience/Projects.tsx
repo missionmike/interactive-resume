@@ -7,13 +7,6 @@ import { Skill } from "../../../../sanity.types";
 import { SkillItem } from "@/components/sections/Skills/SkillItem";
 import styles from "./Projects.module.scss";
 
-// Extending Document to include startViewTransition (since it's not typed yet in TS)
-declare global {
-  interface Document {
-    startViewTransition?: (callback: () => void) => void;
-  }
-}
-
 export const Projects = ({
   position,
   projects,
