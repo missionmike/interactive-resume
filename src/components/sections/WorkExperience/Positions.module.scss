@@ -1,9 +1,14 @@
 .container {
-  h4 span {
-    font-weight: normal;
+  h4 {
+    position: sticky;
+    display: block;
+    top: 30px;
+    padding: 20px 0;
+    background-color: var(--background);
+    z-index: 1;
   }
 
-  li {
-    margin-top: 16px;
+  h4 span {
+    font-weight: normal;
   }
 }

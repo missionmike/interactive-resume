@@ -4,7 +4,7 @@ import { gql } from "@apollo/client";
 
 export const GET_POSITIONS = gql`
   query getPositions($companyIds: [ID!]) {
-    allPosition(where: { company: { _id: { in: $companyIds } } }) {
+    allPosition(where: { company: { _id: { in: $companyIds } } }, sort: [{ dateEnd: DESC }]) {
       _id
       title
       dateStart

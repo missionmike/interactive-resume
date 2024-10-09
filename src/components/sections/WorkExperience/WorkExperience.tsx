@@ -18,7 +18,7 @@ export const WorkExperience = () => {
         );
 
         return (
-          <div key={`company-${company._id}`}>
+          <div key={`company-${company._id}`} className={styles.companySection}>
             <h3>
               {company.name}
               <span>

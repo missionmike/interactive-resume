@@ -1,19 +1,20 @@
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #eee;
+  --foreground: #222;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #0f003c;
+    --foreground: #ddd;
   }
 }
 
 html,
 body {
   max-width: 100vw;
-  overflow-x: hidden;
+  width: 100%;
+  height: 100%;
 }
 
 body {
@@ -60,5 +61,5 @@ ul {
 
 ::view-transition-old(root),
 ::view-transition-new(root) {
-  animation-duration: 0.5s;
+  animation-duration: 0.7s;
 }

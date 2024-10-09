@@ -11,7 +11,7 @@ import { useContext } from "react";
 export const Skills = () => {
   const { skills } = useContext(MainContext);
 
-  const [skillsLayout, setSkillsLayout] = useState<"experience" | "cloud">("experience");
+  const [skillsLayout, setSkillsLayout] = useState<"experience" | "cloud">("cloud");
 
   const handleClick = (e: MouseEvent<HTMLButtonElement>) => {
     const target = e.target;

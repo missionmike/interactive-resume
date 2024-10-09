@@ -18,7 +18,7 @@ export const Positions = ({ positions }: { positions: PositionWithRefs[] }) => {
               </span>
             ) : null}
           </h4>
-          <Projects projects={position.projects} />
+          {position?.projects ? <Projects projects={position.projects} /> : null}
         </div>
       ))}
     </div>

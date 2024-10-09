@@ -1,7 +1,27 @@
 .section {
+  position: relative;
+  display: block;
   margin-top: 40px;
+  padding-top: 40px;
+  border-top: 1px solid gray;
+
+  h3 {
+    position: sticky;
+    display: block;
+    top: 0;
+    background-color: var(--background);
+    padding: 10px 0 20px;
+    margin-bottom: 0;
+    z-index: 1;
+  }
 
   h3 span {
     font-weight: normal;
   }
+}
+
+.companySection {
+  border-top: 1px solid gray;
+  margin-top: 40px;
+  padding-top: 20px;
 }
