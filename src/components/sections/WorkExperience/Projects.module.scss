@@ -1,6 +1,12 @@
+@import "@/app/vars.scss";
+
 .projectList {
   list-style-position: outside;
   padding-left: 30px;
+
+  @media screen and (max-width: $breakpoint_mobile) {
+    padding-left: 0;
+  }
 
   li {
     position: relative;
@@ -11,11 +17,21 @@
     margin-top: 16px;
     transition: all 0.25s ease;
 
+    @media screen and (max-width: $breakpoint_mobile) {
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+
     .projectTagContainer {
       display: flex;
       align-items: flex-start;
       flex-wrap: wrap;
       gap: 4px;
+
+      @media screen and (max-width: $breakpoint_mobile) {
+        padding-bottom: 16px;
+        border-bottom: 1px solid lightgray;
+      }
     }
 
     &[data-selected="true"] {
@@ -39,5 +55,9 @@
     color: var(--foreground);
     font-size: 2rem;
     line-height: 1rem;
+
+    @media screen and (max-width: $breakpoint_mobile) {
+      display: none;
+    }
   }
 }
