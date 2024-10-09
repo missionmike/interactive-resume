@@ -1,6 +1,5 @@
 import { AllCompany, GET_COMPANIES } from "@/graphql/getCompanies";
 import { AllPosition, GET_POSITIONS } from "@/graphql/getPositions";
-import { AllProject, GET_PROJECTS } from "@/graphql/getProjects";
 import { AllSkill, GET_SKILLS } from "@/graphql/getSkills";
 
 import { MainProvider } from "@/context/MainContext";
@@ -23,13 +22,6 @@ export default async function Page() {
     },
   });
 
-  const { data: allProjectData } = await client.query<AllProject>({
-    query: GET_PROJECTS,
-    variables: {
-      positionIds: allPositionData.allPosition.map((position) => position._id),
-    },
-  });
-
   const { data: allSkillData } = await client.query<AllSkill>({
     query: GET_SKILLS,
   });
@@ -38,7 +30,6 @@ export default async function Page() {
     <MainProvider
       companies={allCompanyData.allCompany}
       positions={allPositionData.allPosition}
-      projects={allProjectData.allProject}
       skills={allSkillData.allSkill}
     >
       <main className={styles.main}>

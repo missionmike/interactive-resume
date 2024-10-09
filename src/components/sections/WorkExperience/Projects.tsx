@@ -1,19 +1,12 @@
 import { startTransition, useContext, useEffect, useState, useTransition } from "react";
 
 import { MainContext } from "@/context/MainContext";
-import { PositionWithRefs } from "@/graphql/getPositions";
-import { ProjectWithRefs } from "@/graphql/getProjects";
+import { ProjectWithRefs } from "@/graphql/getPositions";
 import { Skill } from "../../../../sanity.types";
 import { SkillItem } from "@/components/sections/Skills/SkillItem";
 import styles from "./Projects.module.scss";
 
-export const Projects = ({
-  position,
-  projects,
-}: {
-  position: PositionWithRefs;
-  projects: ProjectWithRefs[];
-}) => {
+export const Projects = ({ projects }: { projects: ProjectWithRefs[] }) => {
   const { skills, selectedSkillId } = useContext(MainContext);
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -63,8 +56,6 @@ export const Projects = ({
   return (
     <ul className={styles.projectList}>
       {projectList.map((project) => {
-        if (project?.position?._id !== position._id) return;
-
         const projectSkills = project?.skills
           ? skills.reduce<Skill[]>((acc, skill) => {
               // Check if the skill is linked to the project

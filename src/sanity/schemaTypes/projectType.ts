@@ -27,11 +27,6 @@ export const projectType = defineType({
       ],
     }),
     defineField({
-      name: "position",
-      type: "reference",
-      to: [{ type: "position" }],
-    }),
-    defineField({
       name: "skills",
       type: "array",
       of: [defineArrayMember({ type: "reference", to: { type: "skill" } })],

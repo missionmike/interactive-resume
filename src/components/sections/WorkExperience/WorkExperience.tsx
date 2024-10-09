@@ -7,7 +7,7 @@ import styles from "./WorkExperience.module.scss";
 import { useContext } from "react";
 
 export const WorkExperience = () => {
-  const { companies, positions, projects } = useContext(MainContext);
+  const { companies, positions } = useContext(MainContext);
 
   return (
     <section className={styles.section}>
@@ -15,12 +15,6 @@ export const WorkExperience = () => {
       {companies.map((company) => {
         const positionsInCompany = positions.filter(
           (position) => position?.company?._id === company._id,
-        );
-
-        const projectsInPositions = projects.filter(
-          (project) =>
-            project?.position?._id &&
-            positionsInCompany.map((position) => position._id).includes(project.position._id),
         );
 
         return (
@@ -32,7 +26,7 @@ export const WorkExperience = () => {
                 &mdash; {formatDate(company?.dateStart)} to {formatDate(company?.dateEnd)}
               </span>
             </h3>
-            <Positions positions={positionsInCompany} projects={projectsInPositions} />
+            <Positions positions={positionsInCompany} />
           </div>
         );
       })}

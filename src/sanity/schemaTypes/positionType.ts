@@ -1,4 +1,4 @@
-import { defineField, defineType } from "sanity";
+import { defineArrayMember, defineField, defineType } from "sanity";
 
 import { UserIcon } from "@sanity/icons";
 
@@ -25,5 +25,23 @@ export const positionType = defineType({
       name: "dateEnd",
       type: "date",
     }),
+    defineField({
+      name: "projects",
+      type: "array",
+      of: [defineArrayMember({ type: "reference", to: { type: "project" } })],
+    }),
   ],
+  preview: {
+    select: {
+      title: "title",
+      company: "company.name",
+    },
+    prepare(selection) {
+      const { title, company } = selection;
+      return {
+        title,
+        subtitle: company,
+      };
+    },
+  },
 });

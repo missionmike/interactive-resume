@@ -1,18 +1,11 @@
 "use client";
 
 import { PositionWithRefs } from "@/graphql/getPositions";
-import { ProjectWithRefs } from "@/graphql/getProjects";
 import { Projects } from "./Projects";
 import { formatDate } from "@/lib/format";
 import styles from "./Positions.module.scss";
 
-export const Positions = ({
-  positions,
-  projects,
-}: {
-  positions: PositionWithRefs[];
-  projects: ProjectWithRefs[];
-}) => {
+export const Positions = ({ positions }: { positions: PositionWithRefs[] }) => {
   return (
     <div className={styles.container}>
       {positions.map((position) => (
@@ -25,7 +18,7 @@ export const Positions = ({
               </span>
             ) : null}
           </h4>
-          <Projects position={position} projects={projects} />
+          <Projects projects={position.projects} />
         </div>
       ))}
     </div>
