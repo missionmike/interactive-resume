@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { startTransition, useContext, useEffect, useState, useTransition } from "react";
 
 import { MainContext } from "@/context/MainContext";
 import { PositionWithRefs } from "@/graphql/getPositions";
@@ -15,6 +15,10 @@ export const Projects = ({
   projects: ProjectWithRefs[];
 }) => {
   const { skills, selectedSkillId } = useContext(MainContext);
+
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [isTransitioning, startViewTransition] = useTransition();
+
   const [projectList, setProjectList] = useState(projects);
 
   useEffect(() => {
@@ -51,11 +55,9 @@ export const Projects = ({
       return 0;
     });
 
-    if (document?.startViewTransition) {
-      document.startViewTransition(() => setProjectList(sortedProjectList));
-    } else {
-      setProjectList(sortedProjectList);
-    }
+    startTransition(() => {
+      startViewTransition(() => setProjectList(sortedProjectList));
+    });
   }, [selectedSkillId, projectList, projects, skills]);
 
   return (
