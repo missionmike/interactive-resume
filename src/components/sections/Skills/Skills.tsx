@@ -13,7 +13,7 @@ export const Skills = () => {
 
   const [skillsLayout, setSkillsLayout] = useState<"experience" | "cloud">("cloud");
 
-  const handleClick = (e: MouseEvent<HTMLButtonElement>) => {
+  const toggleSkillsLayout = (e: MouseEvent<HTMLButtonElement>) => {
     const target = e.target;
 
     if (!(target instanceof HTMLButtonElement)) return;
@@ -33,12 +33,16 @@ export const Skills = () => {
         <button
           data-active={skillsLayout === "experience"}
           data-layout="experience"
-          onClick={handleClick}
+          onClick={toggleSkillsLayout}
         >
           Experience
         </button>{" "}
         |{" "}
-        <button data-active={skillsLayout === "cloud"} data-layout="cloud" onClick={handleClick}>
+        <button
+          data-active={skillsLayout === "cloud"}
+          data-layout="cloud"
+          onClick={toggleSkillsLayout}
+        >
           Cloud
         </button>
       </div>
