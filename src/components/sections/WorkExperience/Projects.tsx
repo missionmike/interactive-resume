@@ -20,6 +20,10 @@ export const Projects = ({ projects }: { projects: ProjectWithRefs[] }) => {
       return;
     }
 
+    /**
+     * If a skill is selected, sort the projects so that projects with the
+     * selected skill appear first in the list.
+     */
     const sortedProjectList = [...projectList].sort((a, b) => {
       const projectSkillsA = a?.skills
         ? skills.reduce<string[]>((acc, skill) => {

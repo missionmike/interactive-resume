@@ -40,15 +40,12 @@ export const projectType = defineType({
     select: {
       title: "title",
       media: "mainImage",
-      position: "position.title",
-      company: "position.company.name",
     },
     prepare(selection) {
-      const { title, media, position, company } = selection;
+      const { title, media } = selection;
       return {
         title,
         media,
-        subtitle: `${position} at ${company}`,
       };
     },
   },
