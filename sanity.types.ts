@@ -115,6 +115,7 @@ export type Skill = {
   _updatedAt: string;
   _rev: string;
   title?: string;
+  icon?: string;
   yearStart?: string;
 };
 
@@ -136,12 +137,6 @@ export type Project = {
     crop?: SanityImageCrop;
     alt?: string;
     _type: "image";
-  };
-  position?: {
-    _ref: string;
-    _type: "reference";
-    _weak?: boolean;
-    [internalGroqTypeReferenceTo]?: "position";
   };
   skills?: Array<{
     _ref: string;
@@ -225,6 +220,13 @@ export type Position = {
   };
   dateStart?: string;
   dateEnd?: string;
+  projects?: Array<{
+    _ref: string;
+    _type: "reference";
+    _weak?: boolean;
+    _key: string;
+    [internalGroqTypeReferenceTo]?: "project";
+  }>;
 };
 
 export type Company = {

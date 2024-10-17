@@ -1,7 +1,11 @@
 @import "@/app/vars.scss";
 
 .item {
-  padding: 4px 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 6px 10px;
   margin: 0;
   border-radius: 4px;
   line-height: 1rem;
@@ -13,7 +17,7 @@
   transform: scale(1);
 
   &:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
 
     @media screen and (max-width: $breakpoint_mobile) {
       transform: none;

@@ -13,6 +13,10 @@ export const skillType = defineType({
       type: "string",
     }),
     defineField({
+      name: "icon",
+      type: "string",
+    }),
+    defineField({
       name: "yearStart",
       type: "date",
       options: {
