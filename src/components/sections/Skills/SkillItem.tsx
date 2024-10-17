@@ -29,7 +29,11 @@ export const SkillItem = ({ skill }: { skill: Skill }) => {
       onClick={handleClick}
       data-selected={selectedSkillId === skill._id}
     >
-      {skill?.icon ? <Icon icon={skill.icon} /> : null}
+      {skill?.icon ? (
+        <div className={styles.icon}>
+          <Icon icon={skill.icon} />
+        </div>
+      ) : null}
       {skill.title}
     </div>
   );
