@@ -14,8 +14,12 @@
     grid-template-columns: 60% 1fr;
     align-items: center;
     gap: 20px;
-    margin-top: 16px;
+    padding: 10px;
     transition: all 0.25s ease;
+
+    &:nth-child(odd) {
+      background-color: #ddd;
+    }
 
     @media screen and (max-width: $breakpoint_mobile) {
       grid-template-columns: 1fr;
