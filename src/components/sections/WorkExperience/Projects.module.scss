@@ -19,6 +19,10 @@
 
     &:nth-child(odd) {
       background-color: #ddd;
+
+      @media (prefers-color-scheme: dark) {
+        background-color: rgb(31, 0, 92);
+      }
     }
 
     @media screen and (max-width: $breakpoint_mobile) {
