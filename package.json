@@ -9,7 +9,7 @@
     "lint": "next lint",
     "prettier": "prettier --check .",
     "sanity-typegen": "npx sanity@latest schema extract && npx sanity@latest typegen generate",
-    "graphql-deploy": "npx sanity@latest graphql deploy",
+    "deploy-graphql": "npx sanity@latest graphql deploy",
     "check:types": "tsc --noEmit"
   },
   "dependencies": {
