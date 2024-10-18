@@ -11,6 +11,7 @@ export const GET_POSITIONS = gql`
       dateEnd
       company {
         _id
+        name
       }
       projects {
         _id

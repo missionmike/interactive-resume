@@ -11,7 +11,7 @@
   li {
     position: relative;
     display: grid;
-    grid-template-columns: 60% 1fr;
+    grid-template-columns: 50% 1fr;
     align-items: center;
     gap: 20px;
     padding: 10px;
@@ -61,7 +61,7 @@
     margin-top: -8px;
     left: -25px;
     color: var(--foreground);
-    font-size: 2rem;
+    font-size: 1rem;
     line-height: 1rem;
 
     @media screen and (max-width: $breakpoint_mobile) {

@@ -1,7 +1,7 @@
 "use client";
 
 import { MainContext } from "@/context/MainContext";
-import { Positions } from "./Positions";
+import { PositionsList } from "./PositionsList";
 import { formatDate } from "@/lib/format";
 import styles from "./WorkExperience.module.scss";
 import { useContext } from "react";
@@ -26,7 +26,7 @@ export const WorkExperience = () => {
                 &mdash; {formatDate(company?.dateStart)} to {formatDate(company?.dateEnd)}
               </span>
             </h3>
-            <Positions positions={positionsInCompany} />
+            <PositionsList positions={positionsInCompany} />
           </div>
         );
       })}
