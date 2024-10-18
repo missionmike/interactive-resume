@@ -23,20 +23,27 @@ export const skillType = defineType({
         dateFormat: "YYYY",
       },
     }),
+    defineField({
+      name: "totalYears",
+      type: "number",
+      description: "Enter a value here if you want to override the auto-calculated value.",
+    }),
   ],
   preview: {
     select: {
       title: "title",
       yearStart: "yearStart",
+      totalYears: "totalYears",
     },
-    prepare({ title, yearStart }) {
+    prepare({ title, yearStart, totalYears }) {
       let subtitle = "";
 
       try {
         const currentDateYear = new Date().getFullYear();
         const pastDateYear = parseInt(yearStart.split("-")[0], 10);
-        const yearsExperience = currentDateYear - pastDateYear;
-        subtitle = `${yearsExperience} years (since ${pastDateYear})`;
+        const yearsExperience = totalYears ? totalYears : currentDateYear - pastDateYear;
+
+        subtitle = `${yearsExperience} years ${totalYears ? "" : `(since ${pastDateYear})`}`;
       } catch {
         // Error parsing the date, use default.
       }

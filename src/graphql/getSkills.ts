@@ -8,6 +8,7 @@ export const GET_SKILLS = gql`
       title
       icon
       yearStart
+      totalYears
     }
   }
 `;

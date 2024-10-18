@@ -117,6 +117,7 @@ export type Skill = {
   title?: string;
   icon?: string;
   yearStart?: string;
+  totalYears?: number;
 };
 
 export type Project = {

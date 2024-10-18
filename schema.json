@@ -658,6 +658,13 @@
           "type": "string"
         },
         "optional": true
+      },
+      "totalYears": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "number"
+        },
+        "optional": true
       }
     }
   },
