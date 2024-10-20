@@ -1,48 +1,12 @@
-@import "@/app/vars.scss";
-
 .item {
-  display: flex;
-  align-items: center;
+  text-transform: none !important;
   gap: 8px;
 
-  padding: 6px 10px;
-  margin: 0;
-  border-radius: 4px;
-  line-height: 1rem;
-  background-color: #eee;
-  border: 1px solid black;
-  font-size: 0.9em;
-  cursor: pointer;
-  transition: all 250ms ease;
-  transform: scale(1);
-
   &:hover {
-    transform: scale(1.05);
-
-    @media screen and (max-width: $breakpoint_mobile) {
-      transform: none;
-    }
+    background-color: var(--background);
   }
 
-  @media (prefers-color-scheme: dark) {
-    background-color: #444;
+  &[data-selected="true"] {
+    border-color: orange;
   }
-
-  &[data-selected="false"] {
-    background-color: #fff;
-    border-color: white;
-    color: #333;
-
-    @media (prefers-color-scheme: dark) {
-      background-color: black;
-      color: #fff;
-      border-color: black;
-    }
-  }
-}
-
-.icon {
-  display: inline-block;
-  width: 1em;
-  height: 1em;
 }

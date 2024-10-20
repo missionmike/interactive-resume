@@ -1,9 +1,6 @@
 @import "@/app/vars.scss";
 
 .projectList {
-  list-style-position: outside;
-  padding-left: 30px;
-
   @media screen and (max-width: $breakpoint_mobile) {
     padding-left: 0;
   }
@@ -18,7 +15,7 @@
     transition: all 0.25s ease;
 
     &:nth-child(odd) {
-      background-color: #ddd;
+      background-color: #f3f3f3;
 
       @media (prefers-color-scheme: dark) {
         background-color: rgb(31, 0, 92);
@@ -40,32 +37,6 @@
         padding-bottom: 16px;
         border-bottom: 1px solid lightgray;
       }
-    }
-
-    &[data-selected="true"] {
-      opacity: 1;
-    }
-
-    &[data-selected="false"] {
-      opacity: 0.5;
-    }
-  }
-
-  li::before {
-    content: "•";
-    position: absolute;
-    display: block;
-    width: 20px;
-    height: 20px;
-    top: 50%;
-    margin-top: -8px;
-    left: -25px;
-    color: var(--foreground);
-    font-size: 1rem;
-    line-height: 1rem;
-
-    @media screen and (max-width: $breakpoint_mobile) {
-      display: none;
     }
   }
 }

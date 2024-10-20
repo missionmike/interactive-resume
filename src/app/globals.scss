@@ -1,30 +1,10 @@
-@import "./vars.scss";
-
-:root {
-  --background: #eee;
-  --foreground: #222;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0f003c;
-    --foreground: #ddd;
-  }
-}
+@import "@/app/vars.scss";
 
 html,
 body {
   max-width: 100vw;
   width: 100%;
   height: 100%;
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 * {
@@ -50,13 +30,13 @@ h2 {
   }
 }
 
+ul {
+  padding-inline-start: 0;
+}
+
 h3,
 h4 {
   margin-bottom: 10px;
-}
-
-ul {
-  list-style-position: inside;
 }
 
 @media (prefers-color-scheme: dark) {

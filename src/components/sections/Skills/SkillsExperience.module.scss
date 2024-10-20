@@ -1,7 +1,7 @@
 .skillsExperienceContainer {
   display: grid;
   grid-template-columns: auto 1fr;
-  grid-template-rows: 30px;
+  grid-template-rows: auto;
   width: 100%;
   gap: 5px;
   margin-top: 5px;

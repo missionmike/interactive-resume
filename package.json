@@ -14,14 +14,19 @@
   },
   "dependencies": {
     "@apollo/client": "^3.11.8",
+    "@emotion/cache": "^11.13.1",
+    "@emotion/react": "^11.13.3",
+    "@emotion/styled": "^11.13.0",
     "@iconify/react": "^5.0.2",
+    "@mui/material": "^6.1.4",
+    "@mui/material-nextjs": "^6.1.4",
     "@sanity/icons": "^3.4.0",
     "@sanity/image-url": "^1.0.2",
     "@sanity/vision": "^3.58.0",
     "next": "14.2.13",
     "next-sanity": "^9.5.0",
-    "react": "^18",
-    "react-dom": "^18",
+    "react": "^17.0.0 || ^18.0.0",
+    "react-dom": "^17.0.0 || ^18.0.0",
     "sanity": "^3.58.0",
     "sass": "^1.79.4",
     "styled-components": "^6.1.13"
@@ -34,5 +39,9 @@
     "eslint-config-next": "14.2.13",
     "prettier": "^3.3.3",
     "typescript": "^5"
+  },
+  "peerDependencies": {
+    "react": "^17.0.0 || ^18.0.0",
+    "react-dom": "^17.0.0 || ^18.0.0"
   }
 }

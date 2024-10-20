@@ -1,5 +1,6 @@
 import { MouseEvent, useContext } from "react";
 
+import Button from "@mui/material/Button";
 import { Icon } from "@iconify/react";
 import { MainContext } from "@/context/MainContext";
 import { Skill } from "../../../../sanity.types";
@@ -8,10 +9,10 @@ import styles from "./SkillItem.module.scss";
 export const SkillItem = ({ skill }: { skill: Skill }) => {
   const { selectedSkillId, setSelectedSkillId } = useContext(MainContext);
 
-  const handleClick = (e: MouseEvent<HTMLDivElement>) => {
+  const handleClick = (e: MouseEvent) => {
     const target = e.target;
 
-    if (!(target instanceof HTMLDivElement)) return;
+    if (!(target instanceof HTMLButtonElement)) return;
 
     const dataId = target.getAttribute("data-id");
 
@@ -23,18 +24,16 @@ export const SkillItem = ({ skill }: { skill: Skill }) => {
   };
 
   return (
-    <div
+    <Button
+      variant="outlined"
+      color="primary"
       className={styles.item}
       data-id={skill._id}
       onClick={handleClick}
       data-selected={selectedSkillId === skill._id}
     >
-      {skill?.icon ? (
-        <div className={styles.icon}>
-          <Icon icon={skill.icon} />
-        </div>
-      ) : null}
+      {skill?.icon ? <Icon icon={skill.icon} className={styles.icon} /> : null}
       {skill.title}
-    </div>
+    </Button>
   );
 };
