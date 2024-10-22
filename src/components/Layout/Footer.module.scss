@@ -1,0 +1,24 @@
+.footer {
+  display: block;
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
+  box-shadow: 0 0 35px rgba(0, 0, 0, 0.1);
+
+  .footerContents {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .link {
+    display: flex;
+    align-items: center;
+    gap: 0.35em;
+  }
+}
+
+.invert {
+  filter: invert(100%);
+}

@@ -12,15 +12,6 @@
     align-items: center;
     gap: 20px;
     padding: 10px;
-    transition: all 0.25s ease;
-
-    &:nth-child(odd) {
-      background-color: #f3f3f3;
-
-      @media (prefers-color-scheme: dark) {
-        background-color: rgb(31, 0, 92);
-      }
-    }
 
     @media screen and (max-width: $breakpoint_mobile) {
       grid-template-columns: 1fr;

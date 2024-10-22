@@ -2,10 +2,6 @@
   text-transform: none !important;
   gap: 8px;
 
-  &:hover {
-    background-color: var(--background);
-  }
-
   &[data-selected="true"] {
     border-color: orange;
   }

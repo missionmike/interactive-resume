@@ -5,17 +5,11 @@
     position: sticky;
     text-align: center;
     top: 0;
-    padding: 0;
+    padding: 1rem 0;
     margin-top: 0;
     margin-bottom: 10px;
 
-    &:global(.stuck) {
-      padding: 25px 0 35px 0;
-    }
-
     border-bottom: 1px solid white;
-    background-color: white;
-    transition: all 200ms ease;
     z-index: 1;
 
     @media screen and (max-width: $breakpoint_mobile) {

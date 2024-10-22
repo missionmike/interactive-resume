@@ -1,26 +1,7 @@
-.viewOptions {
-  font-size: 0.9em;
-  margin-bottom: 16px;
+@import "@/app/vars.scss";
 
-  button {
-    border: 0;
-    background-color: transparent;
-    text-decoration: underline;
-    color: purple;
-    cursor: pointer;
-
-    @media (prefers-color-scheme: dark) {
-      color: pink;
-    }
-
-    &:hover {
-      text-decoration: underline;
-    }
-
-    &[data-active="true"] {
-      color: gray;
-      cursor: default;
-      text-decoration: none;
-    }
+.skillsSection {
+  @media (max-width: $breakpoint_mobile) {
+    display: none;
   }
 }

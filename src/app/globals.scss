@@ -39,12 +39,6 @@ h4 {
   margin-bottom: 10px;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-}
-
 // Small tablet and mobile.
 @media screen and (max-width: $breakpoint_mobile) {
   body {

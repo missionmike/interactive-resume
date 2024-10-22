@@ -1,5 +1,6 @@
 "use client";
 
+import { Box, Button } from "@mui/material";
 import React, { MouseEvent, useState } from "react";
 
 import { MainContext } from "@/context/MainContext";
@@ -26,26 +27,28 @@ export const Skills = () => {
   };
 
   return (
-    <section>
+    <section className={styles.skillsSection}>
       <h2>Skills</h2>
-      <div className={styles.viewOptions}>
+      <Box>
         Group by:{" "}
-        <button
+        <Button
           data-active={skillsLayout === "experience"}
           data-layout="experience"
           onClick={toggleSkillsLayout}
+          color={skillsLayout === "experience" ? "primary" : "secondary"}
         >
           Experience
-        </button>{" "}
+        </Button>{" "}
         |{" "}
-        <button
+        <Button
           data-active={skillsLayout === "cloud"}
           data-layout="cloud"
           onClick={toggleSkillsLayout}
+          color={skillsLayout === "cloud" ? "primary" : "secondary"}
         >
           Cloud
-        </button>
-      </div>
+        </Button>
+      </Box>
       {skillsLayout === "experience" ? (
         <SkillsExperience skills={skills} />
       ) : (
