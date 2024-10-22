@@ -1,13 +1,13 @@
 "use client";
 
-import { MainContext } from "@/context/MainContext";
+import { DataContext } from "@/context/DataContext";
 import { PositionsList } from "./PositionsList";
 import { formatDate } from "@/lib/format";
 import styles from "./WorkExperience.module.scss";
 import { useContext } from "react";
 
 export const WorkExperience = () => {
-  const { companies, positions } = useContext(MainContext);
+  const { companies, positions } = useContext(DataContext);
 
   return (
     <section className={styles.section}>

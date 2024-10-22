@@ -3,14 +3,14 @@
 import { Box, Button } from "@mui/material";
 import React, { MouseEvent, useState } from "react";
 
-import { MainContext } from "@/context/MainContext";
+import { DataContext } from "@/context/DataContext";
 import { SkillsCloud } from "./SkillsCloud";
 import { SkillsExperience } from "./SkillsExperience";
 import styles from "./Skills.module.scss";
 import { useContext } from "react";
 
 export const Skills = () => {
-  const { skills } = useContext(MainContext);
+  const { skills } = useContext(DataContext);
 
   const [skillsLayout, setSkillsLayout] = useState<"experience" | "cloud">("experience");
 

@@ -1,4 +1,4 @@
-import { MainContext } from "@/context/MainContext";
+import { DataContext } from "@/context/DataContext";
 import { ProjectWithRefs } from "@/graphql/getPositions";
 import { Skill } from "../../../../sanity.types";
 import { SkillItem } from "@/components/sections/Skills/SkillItem";
@@ -6,7 +6,7 @@ import styles from "./Projects.module.scss";
 import { useContext } from "react";
 
 export const Projects = ({ projects }: { projects: ProjectWithRefs[] }) => {
-  const { skills } = useContext(MainContext);
+  const { skills } = useContext(DataContext);
 
   return (
     <ul className={styles.projectList}>

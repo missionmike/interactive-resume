@@ -1,13 +1,13 @@
 import { MouseEvent, useContext } from "react";
 
 import Button from "@mui/material/Button";
+import { DataContext } from "@/context/DataContext";
 import { Icon } from "@iconify/react";
-import { MainContext } from "@/context/MainContext";
 import { Skill } from "../../../../sanity.types";
 import styles from "./SkillItem.module.scss";
 
 export const SkillItem = ({ skill }: { skill: Skill }) => {
-  const { selectedSkillId, setSelectedSkillId } = useContext(MainContext);
+  const { selectedSkillId, setSelectedSkillId } = useContext(DataContext);
 
   const handleClick = (e: MouseEvent) => {
     const target = e.target;

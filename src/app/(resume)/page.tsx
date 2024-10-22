@@ -2,7 +2,7 @@ import { AllCompany, GET_COMPANIES } from "@/graphql/getCompanies";
 import { AllPosition, GET_POSITIONS } from "@/graphql/getPositions";
 import { AllSkill, GET_SKILLS } from "@/graphql/getSkills";
 
-import { MainProvider } from "@/context/MainContext";
+import { DataProvider } from "@/context/DataContext";
 import { Skills } from "@/components/sections/Skills/Skills";
 import { WorkExperience } from "@/components/sections/WorkExperience/WorkExperience";
 import { getApolloClient } from "@/lib/apolloClient";
@@ -27,7 +27,7 @@ export default async function Page() {
   });
 
   return (
-    <MainProvider
+    <DataProvider
       companies={allCompanyData.allCompany}
       positions={allPositionData.allPosition}
       skills={allSkillData.allSkill}
@@ -41,6 +41,6 @@ export default async function Page() {
         <Skills />
         <WorkExperience />
       </main>
-    </MainProvider>
+    </DataProvider>
   );
 }
