@@ -6,7 +6,7 @@ import styles from "./Projects.module.scss";
 import { useContext } from "react";
 
 export const Projects = ({ projects }: { projects: ProjectWithRefs[] }) => {
-  const { skills, selectedSkillId } = useContext(MainContext);
+  const { skills } = useContext(MainContext);
 
   return (
     <ul className={styles.projectList}>
@@ -22,15 +22,7 @@ export const Projects = ({ projects }: { projects: ProjectWithRefs[] }) => {
           : [];
 
         return (
-          <li
-            key={`project-${project._id}`}
-            data-selected={
-              selectedSkillId
-                ? projectSkills.map((skill) => skill._id).includes(selectedSkillId)
-                : true
-            }
-            style={{ viewTransitionName: `project-${project._id}` }}
-          >
+          <li key={`project-${project._id}`}>
             <div>{project.title}</div>
             <div className={styles.projectTagContainer}>
               {projectSkills.map((skill) =>

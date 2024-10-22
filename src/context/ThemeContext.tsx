@@ -30,7 +30,6 @@ export const ThemeAppearanceProvider = ({ children }: { children?: React.ReactNo
     }
 
     mediaQuery.addEventListener("change", handleMediaQueryChange);
-    // Cleanup for unmount.
     return () => {
       mediaQuery.removeEventListener("change", handleMediaQueryChange);
     };

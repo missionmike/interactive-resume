@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 
 import { PositionWithRefs } from "@/graphql/getPositions";
 import { Projects } from "./Projects";
+import Typography from "@mui/material/Typography";
 import cx from "classnames";
 import { formatDate } from "@/lib/format";
 import styles from "./PositionSingle.module.scss";
@@ -18,15 +19,15 @@ export const PositionSingle = ({
   const [isSticky, setIsSticky] = useState(false);
   const stickyRef = useRef<HTMLHeadingElement | null>(null);
 
+  const handleScroll = () => {
+    if (!stickyRef.current) return;
+
+    const { top } = stickyRef.current.getBoundingClientRect();
+    setIsSticky(top <= 0);
+  };
+
   useEffect(() => {
-    const handleScroll = () => {
-      if (stickyRef.current) {
-        setIsSticky(stickyRef.current.getBoundingClientRect().top <= 0);
-      }
-    };
-
     window.addEventListener("scroll", handleScroll);
-
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
@@ -35,17 +36,29 @@ export const PositionSingle = ({
   return (
     <div className={styles.container}>
       <div key={`position-${position._id}`}>
-        <h4 className={isSticky ? "stuck" : ""} ref={stickyRef}>
+        <Typography
+          component="h4"
+          variant="h6"
+          className={cx(isSticky ? "stuck" : "", styles.position)}
+          ref={stickyRef}
+          sx={(theme) => ({
+            backgroundColor: theme.palette.background.default,
+          })}
+        >
           {position.title}{" "}
           {showDates ? (
             <span className="dates">
               &mdash; {formatDate(position?.dateStart)} to {formatDate(position?.dateEnd)}
             </span>
           ) : null}
-          <span className={cx(styles.companyName, isSticky ? "visible" : "")}>
+          <Typography
+            component="span"
+            className={styles.companyName}
+            sx={isSticky ? { opacity: 1, display: "block" } : { opacity: 0, display: "none" }}
+          >
             {position.company.name}
-          </span>
-        </h4>
+          </Typography>
+        </Typography>
         {position?.projects ? <Projects projects={position.projects} /> : null}
       </div>
     </div>

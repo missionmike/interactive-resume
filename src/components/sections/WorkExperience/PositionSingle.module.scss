@@ -1,43 +1,31 @@
 @import "@/app/vars.scss";
 
-.container {
-  h4 {
-    position: sticky;
-    text-align: center;
-    top: 0;
-    padding: 1rem 0;
-    margin-top: 0;
-    margin-bottom: 10px;
+.position {
+  position: sticky;
+  text-align: center;
+  top: 0;
+  padding: 1rem 0;
+  margin-top: 0;
+  margin-bottom: 10px;
 
-    border-bottom: 1px solid white;
-    z-index: 1;
+  border-bottom: 1px solid white;
+  z-index: 1;
 
-    @media screen and (max-width: $breakpoint_mobile) {
-      margin-top: 16px;
-      text-align: left;
-    }
-  }
-
-  h4 span {
-    font-weight: normal;
+  @media screen and (max-width: $breakpoint_mobile) {
+    margin-top: 16px;
+    text-align: left;
   }
 }
 
 .companyName {
   display: block;
-  position: absolute;
   width: 100%;
   text-align: center;
   font-size: 0.8em;
-  margin-top: 0;
-  opacity: 0;
+  margin-top: 10px;
   transition: opacity 0.5s linear;
 
   @media screen and (max-width: $breakpoint_mobile) {
     text-align: left;
-  }
-
-  &:global(.visible) {
-    opacity: 1;
   }
 }

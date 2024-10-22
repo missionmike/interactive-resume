@@ -30,7 +30,9 @@ export const SkillItem = ({ skill }: { skill: Skill }) => {
       className={styles.item}
       data-id={skill._id}
       onClick={handleClick}
-      data-selected={selectedSkillId === skill._id}
+      sx={(theme) => ({
+        color: theme.palette.primary.main,
+      })}
     >
       {skill?.icon ? <Icon icon={skill.icon} className={styles.icon} /> : null}
       {skill.title}
