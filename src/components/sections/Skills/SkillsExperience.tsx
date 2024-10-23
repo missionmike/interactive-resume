@@ -61,16 +61,30 @@ export const SkillsExperience = ({ skills }: { skills: Skill[] }) => {
       : [skillWithoutYear];
   });
 
+  // Alter the structure of the data so that we can manipulate
+  // the order of the render.
+  const skillsExperienceList: [string, Skill[]][] = [];
+
+  Object.keys(skillsByYear).map((totalYears) => {
+    skillsExperienceList.push([totalYears, skillsByYear[totalYears]]);
+  });
+
+  // Reverse the list order so that the oldest skills appear at the top.
+  skillsExperienceList.reverse();
+
   return (
     <div className={styles.skillsExperienceContainer}>
-      {Object.keys(skillsByYear).map((totalYears) => {
+      {skillsExperienceList.map((skillsExperience) => {
+        const totalYears = skillsExperience[0];
+        const skillsList = skillsExperience[1];
+
         return (
-          <React.Fragment key={`skill-group-${totalYears}`}>
+          <React.Fragment key={`skill-group-${skillsExperience[0]}`}>
             <div className={styles.yearsPrefix}>
               {totalYears ? `${totalYears} year${parseInt(totalYears, 10) > 1 ? "s" : ""}:` : ""}
             </div>
             <div className={styles.skillTagsContainer}>
-              {skillsByYear[totalYears].map((skill) => {
+              {skillsList.map((skill) => {
                 return skill?.title ? (
                   <SkillItem key={`skill-${skill.title}`} skill={skill} />
                 ) : null;
