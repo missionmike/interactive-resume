@@ -108,6 +108,17 @@ export type BlockContent = Array<
     }
 >;
 
+export type Education = {
+  _id: string;
+  _type: "education";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  school?: string;
+  award?: string;
+  dateAwarded?: string;
+};
+
 export type Skill = {
   _id: string;
   _type: "skill";
@@ -248,6 +259,16 @@ export type Company = {
   }>;
 };
 
+export type ThemeOptions = {
+  _id: string;
+  _type: "themeOptions";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  userName?: string;
+  userTitle?: string;
+};
+
 export type AllSanitySchemaTypes =
   | SanityImagePaletteSwatch
   | SanityImagePalette
@@ -256,6 +277,7 @@ export type AllSanitySchemaTypes =
   | Geopoint
   | Slug
   | BlockContent
+  | Education
   | Skill
   | Project
   | SanityImageCrop
@@ -264,5 +286,6 @@ export type AllSanitySchemaTypes =
   | SanityAssetSourceData
   | SanityImageMetadata
   | Position
-  | Company;
+  | Company
+  | ThemeOptions;
 export declare const internalGroqTypeReferenceTo: unique symbol;
