@@ -23,9 +23,10 @@
   text-align: center;
   font-size: 0.8em;
   margin-top: 10px;
-  transition: opacity 0.5s linear;
+  transition: opacity 500ms ease;
 
   @media screen and (max-width: $breakpoint_mobile) {
+    transition: none;
     text-align: left;
   }
 }
