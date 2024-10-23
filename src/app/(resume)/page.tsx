@@ -1,6 +1,7 @@
 import { AllCompany, GET_COMPANIES } from "@/graphql/getCompanies";
 import { AllPosition, GET_POSITIONS } from "@/graphql/getPositions";
 import { AllSkill, GET_SKILLS } from "@/graphql/getSkills";
+import { AllThemeOptions, GET_THEME_OPTIONS } from "@/graphql/getThemeOptions";
 
 import { DataProvider } from "@/context/DataContext";
 import { Skills } from "@/components/sections/Skills/Skills";
@@ -26,6 +27,10 @@ export default async function Page() {
     query: GET_SKILLS,
   });
 
+  const { data: allThemeOptions } = await client.query<AllThemeOptions>({
+    query: GET_THEME_OPTIONS,
+  });
+
   return (
     <DataProvider
       companies={allCompanyData.allCompany}
@@ -34,9 +39,9 @@ export default async function Page() {
     >
       <main className={styles.main}>
         <h1>
-          Michael R. Dinerstein
+          {allThemeOptions.allThemeOptions[0]?.userName}
           <br />
-          <span>Senior Full Stack Software Engineer</span>
+          <span>{allThemeOptions.allThemeOptions[0]?.userTitle}</span>
         </h1>
         <Skills />
         <WorkExperience />

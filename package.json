@@ -8,9 +8,10 @@
     "start": "next start",
     "lint": "next lint",
     "prettier": "prettier --check .",
-    "sanity-typegen": "npx sanity@latest schema extract && npx sanity@latest typegen generate",
-    "deploy-graphql": "npx sanity@latest graphql deploy",
-    "check:types": "tsc --noEmit"
+    "types:generate": "npx sanity@latest schema extract && npx sanity@latest typegen generate",
+    "types:check": "tsc --noEmit",
+    "deploy:graphql": "npx sanity@latest graphql deploy",
+    "deploy:vercel": "npx vercel@latest --prod"
   },
   "dependencies": {
     "@apollo/client": "^3.11.8",

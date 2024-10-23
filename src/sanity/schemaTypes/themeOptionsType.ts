@@ -7,5 +7,9 @@ export const themeOptionsType = {
       name: "userName",
       type: "string",
     },
+    {
+      name: "userTitle",
+      type: "string",
+    },
   ],
 };
