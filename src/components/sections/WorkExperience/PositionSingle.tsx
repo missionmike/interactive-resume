@@ -54,7 +54,7 @@ export const PositionSingle = ({
           <Typography
             component="span"
             className={styles.companyName}
-            sx={isSticky ? { opacity: 1, display: "block" } : { opacity: 0, display: "none" }}
+            sx={{ opacity: isSticky ? 1 : 0 }}
           >
             {position.company.name}
           </Typography>
