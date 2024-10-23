@@ -5,6 +5,9 @@ export const structure: StructureResolver = (S) =>
   S.list()
     .title("Interactive Resume")
     .items([
+      S.listItem().title("Theme Options").child(
+        S.editor().id("themeOptions").schemaType("themeOptions").documentId("themeOptions"), // Ensure only one document
+      ),
       S.documentTypeListItem("company").title("Companies"),
       S.documentTypeListItem("position").title("Positions"),
       S.documentTypeListItem("skill").title("Skills"),
