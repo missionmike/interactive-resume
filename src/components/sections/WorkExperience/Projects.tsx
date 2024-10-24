@@ -1,11 +1,13 @@
 import { Accordion, AccordionDetails, AccordionSummary } from "@mui/material";
 
-import { ArrowDownIcon } from "@sanity/icons";
 import { DataContext } from "@/context/DataContext";
+import Image from "next/image";
 import { PortableText } from "next-sanity";
 import { ProjectWithRefs } from "@/graphql/getPositions";
 import { SkillItem } from "@/components/sections/Skills/SkillItem";
 import { SkillWithDescriptionRaw } from "@/graphql/getSkills";
+import { createClient } from "@sanity/client";
+import imageUrlBuilder from "@sanity/image-url";
 import styles from "./Projects.module.scss";
 import { useContext } from "react";
 
@@ -26,6 +28,38 @@ const ProjectItem = ({
   </div>
 );
 
+const sanityClient = createClient({
+  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
+  dataset: process.env.NEXT_PUBLIC_SANITY_DATASET,
+  useCdn: true,
+});
+
+const builder = imageUrlBuilder(sanityClient);
+
+// Function to generate image URLs
+function urlFor(source: string) {
+  return builder.image(source);
+}
+
+const CustomImage = ({ value }: { value: { alt: string; asset: string } }) => {
+  const imageUrl = urlFor(value.asset).url();
+  return (
+    <Image
+      src={imageUrl}
+      alt={value.alt || "Image"}
+      width={1200}
+      height={500}
+      style={{ maxWidth: "100%", height: "auto" }}
+    />
+  );
+};
+
+const components = {
+  types: {
+    image: CustomImage, // Map "image" type to your custom component
+  },
+};
+
 export const Projects = ({ projects }: { projects: ProjectWithRefs[] }) => {
   const { skills } = useContext(DataContext);
 
@@ -42,16 +76,28 @@ export const Projects = ({ projects }: { projects: ProjectWithRefs[] }) => {
 
     return project?.bodyRaw ? (
       <Accordion
-        sx={{ boxShadow: "none", padding: "0" }}
+        sx={{
+          boxShadow: "none",
+          padding: "0",
+        }}
         key={`project-${project._id}`}
         slotProps={{ heading: { component: "h5" } }}
         className={styles.accordion}
       >
-        <AccordionSummary expandIcon={project?.bodyRaw ? <ArrowDownIcon /> : null}>
+        <AccordionSummary>
           <ProjectItem project={project} projectSkills={projectSkills} />
         </AccordionSummary>
-        <AccordionDetails>
-          <PortableText value={project.bodyRaw} />
+        <AccordionDetails
+          sx={(theme) => ({
+            backgroundColor: theme.palette.primary.light,
+            padding: "2rem",
+          })}
+          className={styles.accordionDetails}
+        >
+          {/* {project?.mainImage?.asset?.url ? (
+            <Image src={project.mainImage.asset.url} alt={project.mainImage?.alt ?? ""} />
+          ) : null} */}
+          <PortableText value={project.bodyRaw} components={components} />
         </AccordionDetails>
       </Accordion>
     ) : (

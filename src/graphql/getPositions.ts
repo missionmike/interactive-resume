@@ -1,5 +1,6 @@
 import { BlockContent, Company, Position, Project } from "../../sanity.types";
 
+import { ImageAsset } from "./types";
 import { SkillWithDescriptionRaw } from "./getSkills";
 import { gql } from "@apollo/client";
 
@@ -21,6 +22,12 @@ export const GET_POSITIONS = gql`
         mainImage {
           asset {
             url
+            metadata {
+              dimensions {
+                width
+                height
+              }
+            }
           }
         }
         skills {
@@ -31,9 +38,13 @@ export const GET_POSITIONS = gql`
   }
 `;
 
-export type ProjectWithRefs = Omit<Project, "skills" | "bodyRaw"> & {
-  bodyRaw: BlockContent;
+export type ProjectWithRefs = Omit<Project, "skills" | "bodyRaw" | "mainImage"> & {
   skills: SkillWithDescriptionRaw[];
+  bodyRaw: BlockContent;
+  mainImage: {
+    alt: string | null;
+    asset: ImageAsset | null;
+  };
 };
 
 export type PositionWithRefs = Omit<Position, "company" | "projects"> & {
