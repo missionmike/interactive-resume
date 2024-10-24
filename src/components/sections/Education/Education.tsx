@@ -26,7 +26,7 @@ export const Education = () => {
     <section className={styles.section}>
       <h2>Education</h2>
       {Object.keys(educationGroupedBySchool).map((school) => (
-        <React.Fragment>
+        <React.Fragment key={`education-${school}`}>
           <h3>{school}</h3>
           {educationGroupedBySchool[school].map((edu) => (
             <div key={`education-${edu._id}`}>

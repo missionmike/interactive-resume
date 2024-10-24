@@ -160,6 +160,71 @@ export type Project = {
   body?: BlockContent;
 };
 
+export type Position = {
+  _id: string;
+  _type: "position";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  title?: string;
+  company?: {
+    _ref: string;
+    _type: "reference";
+    _weak?: boolean;
+    [internalGroqTypeReferenceTo]?: "company";
+  };
+  dateStart?: string;
+  dateEnd?: string;
+  projects?: Array<{
+    _ref: string;
+    _type: "reference";
+    _weak?: boolean;
+    _key: string;
+    [internalGroqTypeReferenceTo]?: "project";
+  }>;
+};
+
+export type Company = {
+  _id: string;
+  _type: "company";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  name?: string;
+  dateStart?: string;
+  dateEnd?: string;
+  positions?: Array<{
+    _ref: string;
+    _type: "reference";
+    _weak?: boolean;
+    _key: string;
+    [internalGroqTypeReferenceTo]?: "position";
+  }>;
+};
+
+export type ThemeOptions = {
+  _id: string;
+  _type: "themeOptions";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  userName?: string;
+  userTitle?: string;
+  siteTitle?: string;
+  siteDescription?: string;
+  siteImage?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  };
+};
+
 export type SanityImageCrop = {
   _type: "sanity.imageCrop";
   top?: number;
@@ -217,58 +282,6 @@ export type SanityImageMetadata = {
   isOpaque?: boolean;
 };
 
-export type Position = {
-  _id: string;
-  _type: "position";
-  _createdAt: string;
-  _updatedAt: string;
-  _rev: string;
-  title?: string;
-  company?: {
-    _ref: string;
-    _type: "reference";
-    _weak?: boolean;
-    [internalGroqTypeReferenceTo]?: "company";
-  };
-  dateStart?: string;
-  dateEnd?: string;
-  projects?: Array<{
-    _ref: string;
-    _type: "reference";
-    _weak?: boolean;
-    _key: string;
-    [internalGroqTypeReferenceTo]?: "project";
-  }>;
-};
-
-export type Company = {
-  _id: string;
-  _type: "company";
-  _createdAt: string;
-  _updatedAt: string;
-  _rev: string;
-  name?: string;
-  dateStart?: string;
-  dateEnd?: string;
-  positions?: Array<{
-    _ref: string;
-    _type: "reference";
-    _weak?: boolean;
-    _key: string;
-    [internalGroqTypeReferenceTo]?: "position";
-  }>;
-};
-
-export type ThemeOptions = {
-  _id: string;
-  _type: "themeOptions";
-  _createdAt: string;
-  _updatedAt: string;
-  _rev: string;
-  userName?: string;
-  userTitle?: string;
-};
-
 export type AllSanitySchemaTypes =
   | SanityImagePaletteSwatch
   | SanityImagePalette
@@ -280,12 +293,12 @@ export type AllSanitySchemaTypes =
   | Education
   | Skill
   | Project
+  | Position
+  | Company
+  | ThemeOptions
   | SanityImageCrop
   | SanityImageHotspot
   | SanityImageAsset
   | SanityAssetSourceData
-  | SanityImageMetadata
-  | Position
-  | Company
-  | ThemeOptions;
+  | SanityImageMetadata;
 export declare const internalGroqTypeReferenceTo: unique symbol;

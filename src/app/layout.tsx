@@ -26,12 +26,28 @@ const { data: allThemeOptions } = await client.query<AllThemeOptions>({
   query: GET_THEME_OPTIONS,
 });
 
-const userName = allThemeOptions.allThemeOptions?.[0]?.userName;
-const userTitle = allThemeOptions.allThemeOptions?.[0]?.userTitle;
+const { userName, userTitle, siteTitle, siteDescription, siteImage } =
+  allThemeOptions.allThemeOptions[0];
+
+const siteTitleDefault =
+  userName && userTitle ? `Resume of ${userName}, ${userTitle}` : "Interactive Resume";
 
 export const metadata: Metadata = {
-  title: `Resume of ${userName}, ${userTitle}`,
-  description: "",
+  title: siteTitle ? siteTitle : siteTitleDefault,
+  description: siteDescription ? siteDescription : "",
+  openGraph: {
+    title: siteTitle ? siteTitle : siteTitleDefault,
+    description: siteDescription ? siteDescription : "",
+    images: siteImage?.asset?.url
+      ? [
+          {
+            url: siteImage.asset.url,
+            width: siteImage.asset.metadata.dimensions.width,
+            height: siteImage.asset.metadata.dimensions.height,
+          },
+        ]
+      : [],
+  },
 };
 
 export default function RootLayout({
