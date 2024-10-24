@@ -35,6 +35,11 @@ const siteTitleDefault =
 export const metadata: Metadata = {
   title: siteTitle ? siteTitle : siteTitleDefault,
   description: siteDescription ? siteDescription : "",
+  authors: [
+    {
+      name: userName ? userName : "",
+    },
+  ],
   openGraph: {
     title: siteTitle ? siteTitle : siteTitleDefault,
     description: siteDescription ? siteDescription : "",

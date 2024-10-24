@@ -28,6 +28,11 @@ export const skillType = defineType({
       type: "number",
       description: "Enter a value here if you want to override the auto-calculated value.",
     }),
+    defineField({
+      name: "description",
+      type: "blockContent",
+      description: "Displayed in a modal pop-up if users click on the skill.",
+    }),
   ],
   preview: {
     select: {

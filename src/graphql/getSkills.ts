@@ -1,4 +1,5 @@
-import { Skill } from "../../sanity.types";
+import { BlockContent, Skill } from "../../sanity.types";
+
 import { gql } from "@apollo/client";
 
 export const GET_SKILLS = gql`
@@ -9,10 +10,13 @@ export const GET_SKILLS = gql`
       icon
       yearStart
       totalYears
+      descriptionRaw
     }
   }
 `;
 
+export type SkillWithDescriptionRaw = Omit<Skill, "description"> & { descriptionRaw: BlockContent };
+
 export type AllSkill = {
-  allSkill: Skill[];
+  allSkill: SkillWithDescriptionRaw[];
 };

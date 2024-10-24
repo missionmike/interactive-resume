@@ -129,6 +129,7 @@ export type Skill = {
   icon?: string;
   yearStart?: string;
   totalYears?: number;
+  description?: BlockContent;
 };
 
 export type Project = {

@@ -1,13 +1,13 @@
 "use client";
 
 import React from "react";
-import { Skill } from "../../../../sanity.types";
 import { SkillItem } from "./SkillItem";
+import { SkillWithDescriptionRaw } from "@/graphql/getSkills";
 import styles from "./SkillsExperience.module.scss";
 
-export const SkillsExperience = ({ skills }: { skills: Skill[] }) => {
+export const SkillsExperience = ({ skills }: { skills: SkillWithDescriptionRaw[] }) => {
   const skillsByYear: {
-    [year: string]: Skill[];
+    [year: string]: SkillWithDescriptionRaw[];
   } = {};
 
   /**
@@ -63,7 +63,7 @@ export const SkillsExperience = ({ skills }: { skills: Skill[] }) => {
 
   // Alter the structure of the data so that we can manipulate
   // the order of the render.
-  const skillsExperienceList: [string, Skill[]][] = [];
+  const skillsExperienceList: [string, SkillWithDescriptionRaw[]][] = [];
 
   Object.keys(skillsByYear).map((totalYears) => {
     skillsExperienceList.push([totalYears, skillsByYear[totalYears]]);

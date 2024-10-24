@@ -723,6 +723,14 @@
           "type": "number"
         },
         "optional": true
+      },
+      "description": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "inline",
+          "name": "blockContent"
+        },
+        "optional": true
       }
     }
   },

@@ -1,7 +1,7 @@
 import { DataContext } from "@/context/DataContext";
 import { ProjectWithRefs } from "@/graphql/getPositions";
-import { Skill } from "../../../../sanity.types";
 import { SkillItem } from "@/components/sections/Skills/SkillItem";
+import { SkillWithDescriptionRaw } from "@/graphql/getSkills";
 import styles from "./Projects.module.scss";
 import { useContext } from "react";
 
@@ -12,7 +12,7 @@ export const Projects = ({ projects }: { projects: ProjectWithRefs[] }) => {
     <ul className={styles.projectList}>
       {projects.map((project) => {
         const projectSkills = project?.skills
-          ? skills.reduce<Skill[]>((acc, skill) => {
+          ? skills.reduce<SkillWithDescriptionRaw[]>((acc, skill) => {
               // Check if the skill is linked to the project
               if (skill?.title && project.skills.map((s) => s._id).includes(skill._id)) {
                 acc.push(skill);

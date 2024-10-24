@@ -1,12 +1,13 @@
 "use client";
 
-import { Company, Education, Skill } from "../../sanity.types";
+import { Company, Education } from "../../sanity.types";
 import { SetStateAction, createContext, useState } from "react";
 
 import { PositionWithRefs } from "@/graphql/getPositions";
+import { SkillWithDescriptionRaw } from "@/graphql/getSkills";
 
 interface DataProviderProps {
-  skills: Skill[];
+  skills: SkillWithDescriptionRaw[];
   companies: Company[];
   positions: PositionWithRefs[];
   education: Education[];

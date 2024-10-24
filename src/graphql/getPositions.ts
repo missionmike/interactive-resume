@@ -1,5 +1,6 @@
 import { Company, Position, Project, Skill } from "../../sanity.types";
 
+import { SkillWithDescriptionRaw } from "./getSkills";
 import { gql } from "@apollo/client";
 
 export const GET_POSITIONS = gql`
@@ -31,7 +32,7 @@ export const GET_POSITIONS = gql`
 `;
 
 export type ProjectWithRefs = Omit<Project, "skills"> & {
-  skills: Skill[];
+  skills: SkillWithDescriptionRaw[];
 };
 
 export type PositionWithRefs = Omit<Position, "company" | "projects"> & {
