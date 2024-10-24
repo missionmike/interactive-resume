@@ -1,4 +1,4 @@
-import { Company, Position, Project, Skill } from "../../sanity.types";
+import { Company, Position, Project } from "../../sanity.types";
 
 import { SkillWithDescriptionRaw } from "./getSkills";
 import { gql } from "@apollo/client";
