@@ -1,4 +1,4 @@
-import { Company, Position, Project } from "../../sanity.types";
+import { BlockContent, Company, Position, Project } from "../../sanity.types";
 
 import { SkillWithDescriptionRaw } from "./getSkills";
 import { gql } from "@apollo/client";
@@ -31,7 +31,8 @@ export const GET_POSITIONS = gql`
   }
 `;
 
-export type ProjectWithRefs = Omit<Project, "skills"> & {
+export type ProjectWithRefs = Omit<Project, "skills" | "bodyRaw"> & {
+  bodyRaw: BlockContent;
   skills: SkillWithDescriptionRaw[];
 };
 

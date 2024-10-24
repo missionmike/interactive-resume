@@ -1,33 +1,35 @@
 @import "@/app/vars.scss";
 
-.projectList {
-  @media screen and (max-width: $breakpoint_mobile) {
-    padding-left: 0;
+.accordion {
+  :global(div.MuiButtonBase-root) {
+    padding: 0;
   }
+}
 
-  li {
-    position: relative;
-    display: grid;
-    grid-template-columns: 50% 1fr;
-    align-items: center;
-    gap: 20px;
-    padding: 10px;
+.projectOverview {
+  position: relative;
+  width: 100%;
+  text-align: left;
+  display: grid;
+  grid-template-columns: 50% 1fr;
+  align-items: center;
+  gap: 20px;
+  padding: 10px 0;
 
-    @media screen and (max-width: $breakpoint_mobile) {
-      grid-template-columns: 1fr;
-      gap: 10px;
-    }
+  @media screen and (max-width: $breakpoint_mobile) {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+}
 
-    .projectTagContainer {
-      display: flex;
-      align-items: flex-start;
-      flex-wrap: wrap;
-      gap: 4px;
+.projectTagContainer {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 4px;
 
-      @media screen and (max-width: $breakpoint_mobile) {
-        padding-bottom: 16px;
-        border-bottom: 1px solid lightgray;
-      }
-    }
+  @media screen and (max-width: $breakpoint_mobile) {
+    padding-bottom: 16px;
+    border-bottom: 1px solid lightgray;
   }
 }
