@@ -1,14 +1,15 @@
 "use client";
 
-import { Company, Skill } from "../../sanity.types";
+import { Company, Education, Skill } from "../../sanity.types";
 import { SetStateAction, createContext, useState } from "react";
 
 import { PositionWithRefs } from "@/graphql/getPositions";
 
 interface DataProviderProps {
+  skills: Skill[];
   companies: Company[];
   positions: PositionWithRefs[];
-  skills: Skill[];
+  education: Education[];
 }
 
 interface DataContextProps {
@@ -17,24 +18,26 @@ interface DataContextProps {
 }
 
 export const DataContext = createContext<DataProviderProps & DataContextProps>({
+  skills: [],
   companies: [],
   positions: [],
-  skills: [],
+  education: [],
   selectedSkillId: "",
   setSelectedSkillId: () => {},
 });
 
 export const DataProvider = ({
   children,
+  skills,
   companies,
   positions,
-  skills,
+  education,
 }: DataProviderProps & { children?: React.ReactNode }) => {
   const [selectedSkillId, setSelectedSkillId] = useState("");
 
   return (
     <DataContext.Provider
-      value={{ companies, positions, skills, selectedSkillId, setSelectedSkillId }}
+      value={{ skills, companies, positions, education, selectedSkillId, setSelectedSkillId }}
     >
       {children}
     </DataContext.Provider>

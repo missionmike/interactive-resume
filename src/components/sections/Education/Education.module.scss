@@ -1,9 +1,11 @@
 @import "@/app/vars.scss";
 
 .section {
-  h3 {
+  h3,
+  h4 {
+    display: block;
     text-align: center;
-    padding: 20px 0 0;
+    padding: 10px 0 0;
     z-index: 1;
     line-height: 2rem;
 
@@ -12,16 +14,7 @@
     }
   }
 
-  h3 span {
+  h4 span {
     font-weight: normal;
-  }
-}
-
-.companySection {
-  margin-top: 30px;
-
-  @media screen and (max-width: $breakpoint_mobile) {
-    margin-top: 16px;
-    padding-top: 0;
   }
 }

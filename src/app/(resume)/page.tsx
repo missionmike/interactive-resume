@@ -1,9 +1,11 @@
 import { AllCompany, GET_COMPANIES } from "@/graphql/getCompanies";
+import { AllEducation, GET_EDUCATION } from "@/graphql/getEducation";
 import { AllPosition, GET_POSITIONS } from "@/graphql/getPositions";
 import { AllSkill, GET_SKILLS } from "@/graphql/getSkills";
 import { AllThemeOptions, GET_THEME_OPTIONS } from "@/graphql/getThemeOptions";
 
 import { DataProvider } from "@/context/DataContext";
+import { Education } from "@/components/sections/Education/Education";
 import { Skills } from "@/components/sections/Skills/Skills";
 import { WorkExperience } from "@/components/sections/WorkExperience/WorkExperience";
 import { getApolloClient } from "@/lib/apolloClient";
@@ -11,6 +13,14 @@ import styles from "./page.module.scss";
 
 export default async function Page() {
   const client = getApolloClient();
+
+  const { data: allThemeOptionsData } = await client.query<AllThemeOptions>({
+    query: GET_THEME_OPTIONS,
+  });
+
+  const { data: allSkillData } = await client.query<AllSkill>({
+    query: GET_SKILLS,
+  });
 
   const { data: allCompanyData } = await client.query<AllCompany>({
     query: GET_COMPANIES,
@@ -23,28 +33,26 @@ export default async function Page() {
     },
   });
 
-  const { data: allSkillData } = await client.query<AllSkill>({
-    query: GET_SKILLS,
-  });
-
-  const { data: allThemeOptions } = await client.query<AllThemeOptions>({
-    query: GET_THEME_OPTIONS,
+  const { data: allEducationData } = await client.query<AllEducation>({
+    query: GET_EDUCATION,
   });
 
   return (
     <DataProvider
+      skills={allSkillData.allSkill}
       companies={allCompanyData.allCompany}
       positions={allPositionData.allPosition}
-      skills={allSkillData.allSkill}
+      education={allEducationData.allEducation}
     >
       <main className={styles.main}>
         <h1>
-          {allThemeOptions.allThemeOptions[0]?.userName}
+          {allThemeOptionsData.allThemeOptions[0]?.userName}
           <br />
-          <span>{allThemeOptions.allThemeOptions[0]?.userTitle}</span>
+          <span>{allThemeOptionsData.allThemeOptions[0]?.userTitle}</span>
         </h1>
         <Skills />
         <WorkExperience />
+        <Education />
       </main>
     </DataProvider>
   );
