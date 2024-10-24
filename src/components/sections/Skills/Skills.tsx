@@ -28,7 +28,7 @@ export const Skills = () => {
 
   return (
     <section className={styles.skillsSection}>
-      <h2>Skills</h2>
+      <h2 className="resumeHeading">Skills</h2>
       <Box>
         Group by:{" "}
         <Button

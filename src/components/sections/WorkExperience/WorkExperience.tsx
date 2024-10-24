@@ -11,7 +11,7 @@ export const WorkExperience = () => {
 
   return (
     <section className={styles.section}>
-      <h2>Work Experience</h2>
+      <h2 className="resumeHeading">Work Experience</h2>
       {companies.map((company) => {
         const positionsInCompany = positions.filter(
           (position) => position?.company?._id === company._id,
