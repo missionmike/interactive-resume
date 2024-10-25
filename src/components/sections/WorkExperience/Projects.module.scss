@@ -4,16 +4,21 @@
   border-top: 2px solid transparent;
   border-bottom: 2px solid transparent;
 
+  &::before {
+    display: none;
+  }
+
   &::after {
-    content: "+";
+    content: "⬇️";
     font-size: 1rem;
     display: block;
     position: absolute;
     top: calc(50% - 1rem);
-    right: 1em;
+    right: 0;
     opacity: 1;
     transform: rotate(0deg) scale(1);
     transition: all 1.2s;
+    color: green;
   }
 
   &:global(.Mui-expanded) {
@@ -22,7 +27,7 @@
 
     &::after {
       opacity: 0;
-      transform: rotate(360deg) scale(2);
+      transform: rotate(180deg) scale(2);
     }
   }
 
