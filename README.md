@@ -40,10 +40,17 @@ Either way, you can always run the local utility `npm run deploy:vercel` to trig
 4. If the date value in the URL differs from the value in `NEXT_PUBLIC_SANITY_API_VERSION` in
    `.env.local`, update the value in `.env.local` to match the date value from the URL (exclude the
    `"v"` prefix).
-5. [<img src="https://run.pstmn.io/button.svg" alt="Run In Postman" style="width: 128px; height: 32px;">](https://app.getpostman.com/run-collection/2595954-32a4a40a-8daa-45b4-b570-4e533469a20c?action=collection%2Ffork&source=rip_markdown&collection-url=entityId%3D2595954-32a4a40a-8daa-45b4-b570-4e533469a20c%26entityType%3Dcollection%26workspaceId%3D034c1af6-8d72-472b-8943-f6291da07e69#?env%5BInteractive%20Resume%5D=W3sia2V5IjoiR1JBUEhRTF9FTkRQT0lOVCIsInZhbHVlIjoiaHR0cDovL3lvdXItZ3JhcGhxbC1lbmRwb2ludC9ncmFwaHFsIiwiZW5hYmxlZCI6dHJ1ZSwidHlwZSI6ImRlZmF1bHQiLCJzZXNzaW9uVmFsdWUiOiJodHRwOi8veW91ci1ncmFwaHFsLWVuZHBvaW50L2dyYXBocWwiLCJjb21wbGV0ZVNlc3Npb25WYWx1ZSI6Imh0dHA6Ly95b3VyLWdyYXBocWwtZW5kcG9pbnQvZ3JhcGhxbCIsInNlc3Npb25JbmRleCI6MH1d)
 
-> You need to ensure that the Environment value for `{{GRAPHQL_ENDPOINT}}` is set in Postman to test
-> it! However, exampl responses are included in the public workspace.
+### Fetch Content from Sanity
+
+After setting up Sanity and ensuring GraphQL is published, you an test out your GraphQL endpoint
+with Postman. I've set up an example collection that you can fork to test, or view the saved example
+responses.
+
+[<img src="https://run.pstmn.io/button.svg" alt="Run In Postman" style="width: 128px; height: 32px;">](https://app.getpostman.com/run-collection/2595954-32a4a40a-8daa-45b4-b570-4e533469a20c?action=collection%2Ffork&source=rip_markdown&collection-url=entityId%3D2595954-32a4a40a-8daa-45b4-b570-4e533469a20c%26entityType%3Dcollection%26workspaceId%3D034c1af6-8d72-472b-8943-f6291da07e69#?env%5BInteractive%20Resume%5D=W3sia2V5IjoiR1JBUEhRTF9FTkRQT0lOVCIsInZhbHVlIjoiaHR0cDovL3lvdXItZ3JhcGhxbC1lbmRwb2ludC9ncmFwaHFsIiwiZW5hYmxlZCI6dHJ1ZSwidHlwZSI6ImRlZmF1bHQiLCJzZXNzaW9uVmFsdWUiOiJodHRwOi8veW91ci1ncmFwaHFsLWVuZHBvaW50L2dyYXBocWwiLCJjb21wbGV0ZVNlc3Npb25WYWx1ZSI6Imh0dHA6Ly95b3VyLWdyYXBocWwtZW5kcG9pbnQvZ3JhcGhxbCIsInNlc3Npb25JbmRleCI6MH1d)
+
+> You need to ensure that the Environment value for `{{GRAPHQL_ENDPOINT}}` is set in Postman to
+> test!
 
 ### Running on Local
 
