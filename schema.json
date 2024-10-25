@@ -1113,6 +1113,20 @@
         },
         "optional": true
       },
+      "userContact": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        },
+        "optional": true
+      },
+      "userLocation": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        },
+        "optional": true
+      },
       "siteTitle": {
         "type": "objectAttribute",
         "value": {

@@ -11,23 +11,37 @@
   h1 {
     margin-bottom: 32px;
     text-align: center;
+    line-height: 100%;
 
     @media screen and (max-width: $breakpoint_mobile) {
       font-size: 1.5rem;
       text-align: left;
     }
-
-    span {
-      display: block;
-      border-top: 1px solid #ddd;
-      margin-top: 8px;
-      padding-top: 8px;
-      font-weight: normal;
-      font-size: 0.9em;
-
-      @media screen and (max-width: $breakpoint_mobile) {
-        border-top: 0;
-      }
-    }
   }
+}
+
+.userTitle {
+  display: block;
+  margin-top: 8px;
+  padding-top: 8px;
+  font-weight: normal;
+  font-size: 0.9em;
+
+  @media screen and (max-width: $breakpoint_mobile) {
+    border-top: 0;
+  }
+}
+
+.separator {
+  display: inline-block;
+  font-size: 2rem;
+  font-weight: lighter;
+  margin: 0 1rem;
+  opacity: 0.5;
+}
+
+.userMeta {
+  font-size: 1rem;
+  border: none;
+  font-weight: normal;
 }

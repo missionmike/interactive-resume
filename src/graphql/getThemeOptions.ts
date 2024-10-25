@@ -7,6 +7,8 @@ export const GET_THEME_OPTIONS = gql`
     allThemeOptions {
       userName
       userTitle
+      userContact
+      userLocation
       siteTitle
       siteDescription
       siteImage {

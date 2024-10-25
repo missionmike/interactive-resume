@@ -199,6 +199,8 @@ export type ThemeOptions = {
   _rev: string;
   userName?: string;
   userTitle?: string;
+  userContact?: string;
+  userLocation?: string;
   siteTitle?: string;
   siteDescription?: string;
   siteImage?: {

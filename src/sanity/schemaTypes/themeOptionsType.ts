@@ -12,6 +12,16 @@ export const themeOptionsType = {
       type: "string",
     },
     {
+      name: "userContact",
+      type: "string",
+      description: "Enter any contact information. Emails and phone numbers will not be linked.",
+    },
+    {
+      name: "userLocation",
+      type: "string",
+      description: "Enter any general location, such as City, State.",
+    },
+    {
       name: "siteTitle",
       type: "string",
       description: "The title is used for HTML page title as well as opengraph.",

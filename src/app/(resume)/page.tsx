@@ -48,7 +48,15 @@ export default async function Page() {
         <h1>
           {allThemeOptionsData.allThemeOptions[0]?.userName}
           <br />
-          <span>{allThemeOptionsData.allThemeOptions[0]?.userTitle}</span>
+          <span className={styles.userTitle}>
+            {allThemeOptionsData.allThemeOptions[0]?.userTitle}
+          </span>
+          <br />
+          <span className={styles.userMeta}>
+            {allThemeOptionsData.allThemeOptions[0]?.userContact}
+            <span className={styles.separator}>|</span>
+            {allThemeOptionsData.allThemeOptions[0]?.userLocation}
+          </span>
         </h1>
         <Skills />
         <WorkExperience />
