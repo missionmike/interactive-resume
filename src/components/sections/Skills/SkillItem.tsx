@@ -5,7 +5,7 @@ import Button from "@mui/material/Button";
 import { CloseIcon } from "@sanity/icons";
 import { DataContext } from "@/context/DataContext";
 import { Icon } from "@iconify/react";
-import { PortableText } from "next-sanity";
+import { PortableTextCustom } from "@/components/PortableTextCustom";
 import { SkillWithDescriptionRaw } from "@/graphql/getSkills";
 import styles from "./SkillItem.module.scss";
 
@@ -72,7 +72,7 @@ export const SkillItem = ({ skill }: { skill: SkillWithDescriptionRaw }) => {
           <CloseIcon />
         </IconButton>
         <DialogContent>
-          <PortableText value={skill.descriptionRaw} />
+          <PortableTextCustom value={skill.descriptionRaw} />
         </DialogContent>
       </Dialog>
     </React.Fragment>

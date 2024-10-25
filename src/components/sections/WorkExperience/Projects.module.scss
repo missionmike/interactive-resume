@@ -29,16 +29,6 @@
   :global(div.MuiButtonBase-root) {
     padding: 0;
   }
-
-  :global(p),
-  :global(ul) {
-    margin-bottom: 1rem;
-  }
-
-  :global(ul) {
-    list-style-position: outside;
-    padding-left: 2rem;
-  }
 }
 
 .accordionDetails {
