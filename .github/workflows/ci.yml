@@ -29,6 +29,9 @@ jobs:
         with:
           node-version-file: ".nvmrc"
 
+      - name: install dependencies
+        run: npm i
+
       - name: check formatting
         run: npm run prettier
 
