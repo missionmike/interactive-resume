@@ -1,0 +1,39 @@
+name: Continuous Integration
+
+on:
+  push:
+    branches:
+      - "main"
+  pull_request:
+    types: [opened, synchronize]
+    branches:
+      - "main"
+    paths:
+      - "**.ts"
+      - "**.tsx"
+      - "**.scss"
+      - "**.js"
+      - "**.mjs"
+      - "**.css"
+      - "**.json"
+  workflow_dispatch:
+
+jobs:
+  ci:
+    name: Continuous Integration Tests
+    runs-on: [self-hosted, linux, ARM64, org]
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version-file: ".nvmrc"
+
+      - name: check formatting
+        run: npm run prettier
+
+      - name: check lint
+        run: npm run lint
+
+      - name: check types
+        run: npm run types:check
