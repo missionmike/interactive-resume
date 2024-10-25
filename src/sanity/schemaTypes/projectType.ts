@@ -13,20 +13,6 @@ export const projectType = defineType({
       type: "string",
     }),
     defineField({
-      name: "mainImage",
-      type: "image",
-      options: {
-        hotspot: true,
-      },
-      fields: [
-        {
-          name: "alt",
-          type: "string",
-          title: "Alternative text",
-        },
-      ],
-    }),
-    defineField({
       name: "skills",
       type: "array",
       of: [defineArrayMember({ type: "reference", to: { type: "skill" } })],
@@ -39,13 +25,11 @@ export const projectType = defineType({
   preview: {
     select: {
       title: "title",
-      media: "mainImage",
     },
     prepare(selection) {
-      const { title, media } = selection;
+      const { title } = selection;
       return {
         title,
-        media,
       };
     },
   },

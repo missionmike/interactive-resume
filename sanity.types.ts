@@ -139,18 +139,6 @@ export type Project = {
   _updatedAt: string;
   _rev: string;
   title?: string;
-  mainImage?: {
-    asset?: {
-      _ref: string;
-      _type: "reference";
-      _weak?: boolean;
-      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-    };
-    hotspot?: SanityImageHotspot;
-    crop?: SanityImageCrop;
-    alt?: string;
-    _type: "image";
-  };
   skills?: Array<{
     _ref: string;
     _type: "reference";

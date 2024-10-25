@@ -1,8 +1,13 @@
 import { Accordion, AccordionDetails, AccordionSummary } from "@mui/material";
+import {
+  PortableText,
+  PortableTextMarkComponentProps,
+  PortableTextReactComponents,
+} from "next-sanity";
 
 import { DataContext } from "@/context/DataContext";
 import Image from "next/image";
-import { PortableText } from "next-sanity";
+import Link from "next/link";
 import { ProjectWithRefs } from "@/graphql/getPositions";
 import { SkillItem } from "@/components/sections/Skills/SkillItem";
 import { SkillWithDescriptionRaw } from "@/graphql/getSkills";
@@ -54,9 +59,26 @@ const CustomImage = ({ value }: { value: { alt: string; asset: string } }) => {
   );
 };
 
-const components = {
+const CustomLink = ({ children, value }: PortableTextMarkComponentProps) => {
+  const target = value?.href?.startsWith("http") ? "_blank" : undefined;
+
+  return (
+    <Link
+      href={value?.href}
+      target={target}
+      rel={target === "_blank" ? "noopener noreferrer" : undefined}
+    >
+      {children}
+    </Link>
+  );
+};
+
+const components: Partial<PortableTextReactComponents> = {
   types: {
     image: CustomImage, // Map "image" type to your custom component
+  },
+  marks: {
+    link: CustomLink,
   },
 };
 
@@ -94,9 +116,6 @@ export const Projects = ({ projects }: { projects: ProjectWithRefs[] }) => {
           })}
           className={styles.accordionDetails}
         >
-          {/* {project?.mainImage?.asset?.url ? (
-            <Image src={project.mainImage.asset.url} alt={project.mainImage?.alt ?? ""} />
-          ) : null} */}
           <PortableText value={project.bodyRaw} components={components} />
         </AccordionDetails>
       </Accordion>
