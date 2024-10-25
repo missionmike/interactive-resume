@@ -21,7 +21,7 @@ on:
 jobs:
   ci:
     name: Continuous Integration Tests
-    runs-on: [self-hosted, linux, ARM64, org]
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
 
