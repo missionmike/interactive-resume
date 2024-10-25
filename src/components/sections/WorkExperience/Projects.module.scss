@@ -48,6 +48,10 @@
     border-radius: 15px;
     box-shadow: 5px 5px 10px rgba(200, 200, 200, 0.5);
   }
+
+  @media screen and (max-width: $breakpoint_mobile) {
+    padding: 1rem !important;
+  }
 }
 
 .projectOverview {
@@ -63,6 +67,7 @@
   @media screen and (max-width: $breakpoint_mobile) {
     grid-template-columns: 1fr;
     gap: 10px;
+    padding: 10px;
   }
 }
 

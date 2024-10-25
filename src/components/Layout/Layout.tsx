@@ -31,7 +31,7 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
     <AppRouterCacheProvider>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        <main>{children}</main>
+        {children}
         <Footer />
       </ThemeProvider>
     </AppRouterCacheProvider>
