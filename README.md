@@ -40,6 +40,9 @@ Either way, you can always run the local utility `npm run deploy:vercel` to trig
 4. If the date value in the URL differs from the value in `NEXT_PUBLIC_SANITY_API_VERSION` in
    `.env.local`, update the value in `.env.local` to match the date value from the URL (exclude the
    `"v"` prefix).
+5. Ensure you have `localhost:3000` and your production/other domains listed in the CORS section of
+   the Sanity API settings. If you're not allowing your domain to access, the GraphQL requests will
+   be blocked.
 
 ### Fetch Content from Sanity
 
