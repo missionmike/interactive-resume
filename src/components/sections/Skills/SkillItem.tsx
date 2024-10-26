@@ -1,5 +1,5 @@
-import { Dialog, DialogContent, DialogProps, DialogTitle, IconButton } from "@mui/material";
-import React, { MouseEvent, useContext, useState } from "react";
+import { Dialog, DialogContent, DialogTitle, IconButton } from "@mui/material";
+import React, { useState } from "react";
 
 import Button from "@mui/material/Button";
 import { CloseIcon } from "@sanity/icons";
