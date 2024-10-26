@@ -1,5 +1,6 @@
 import { Accordion, AccordionDetails, AccordionSummary } from "@mui/material";
 
+import { ChevronDownIcon } from "@sanity/icons";
 import { DataContext } from "@/context/DataContext";
 import { PortableTextCustom } from "@/components/PortableTextCustom";
 import { ProjectWithRefs } from "@/graphql/getPositions";
@@ -62,7 +63,9 @@ export const Projects = ({ projects }: { projects: ProjectWithRefs[] }) => {
           slotProps={{ heading: { component: "h5" } }}
           className={styles.accordion}
         >
-          <AccordionSummary>
+          <AccordionSummary
+            expandIcon={<ChevronDownIcon fontSize="2em" className={styles.expandIcon} />}
+          >
             <ProjectItem project={project} projectSkills={projectSkills} />
           </AccordionSummary>
           <AccordionDetails
