@@ -119,17 +119,15 @@ export type Education = {
   dateAwarded?: string;
 };
 
-export type Skill = {
-  _id: string;
-  _type: "skill";
-  _createdAt: string;
-  _updatedAt: string;
-  _rev: string;
-  title?: string;
-  icon?: string;
-  yearStart?: string;
-  totalYears?: number;
-  description?: BlockContent;
+export type ProjectSkill = {
+  _type: "projectSkill";
+  skill?: {
+    _ref: string;
+    _type: "reference";
+    _weak?: boolean;
+    [internalGroqTypeReferenceTo]?: "skill";
+  };
+  projectSkillDescription?: BlockContent;
 };
 
 export type Project = {
@@ -139,13 +137,11 @@ export type Project = {
   _updatedAt: string;
   _rev: string;
   title?: string;
-  skills?: Array<{
-    _ref: string;
-    _type: "reference";
-    _weak?: boolean;
-    _key: string;
-    [internalGroqTypeReferenceTo]?: "skill";
-  }>;
+  skills?: Array<
+    {
+      _key: string;
+    } & ProjectSkill
+  >;
   body?: BlockContent;
 };
 
@@ -189,6 +185,19 @@ export type Company = {
     _key: string;
     [internalGroqTypeReferenceTo]?: "position";
   }>;
+};
+
+export type Skill = {
+  _id: string;
+  _type: "skill";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  title?: string;
+  icon?: string;
+  yearStart?: string;
+  totalYears?: number;
+  description?: BlockContent;
 };
 
 export type ThemeOptions = {
@@ -282,10 +291,11 @@ export type AllSanitySchemaTypes =
   | Slug
   | BlockContent
   | Education
-  | Skill
+  | ProjectSkill
   | Project
   | Position
   | Company
+  | Skill
   | ThemeOptions
   | SanityImageCrop
   | SanityImageHotspot

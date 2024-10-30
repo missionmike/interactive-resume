@@ -15,7 +15,9 @@ export const GET_SKILLS = gql`
   }
 `;
 
-export type SkillWithDescriptionRaw = Omit<Skill, "description"> & { descriptionRaw: BlockContent };
+export type SkillWithDescriptionRaw = Skill & {
+  descriptionRaw: BlockContent;
+};
 
 export type AllSkill = {
   allSkill: SkillWithDescriptionRaw[];

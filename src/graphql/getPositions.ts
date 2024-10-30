@@ -19,7 +19,10 @@ export const GET_POSITIONS = gql`
         title
         bodyRaw
         skills {
-          _id
+          skill {
+            _id
+          }
+          projectSkillDescriptionRaw
         }
       }
     }
@@ -27,7 +30,10 @@ export const GET_POSITIONS = gql`
 `;
 
 export type ProjectWithRefs = Omit<Project, "skills" | "bodyRaw"> & {
-  skills: SkillWithDescriptionRaw[];
+  skills: {
+    skill: SkillWithDescriptionRaw;
+    projectSkillDescriptionRaw: BlockContent;
+  }[];
   bodyRaw: BlockContent;
 };
 
