@@ -62,7 +62,8 @@ your name, title, location, and other global meta.
   Values are flexible.
 - **Positions**: http://localhost:3000/studio/structure/position add positions. Each position can be
   linked to a company. Within each position, you can add Projects. The project's title appears as
-  the bullet point in the resume. The desciprion and skills appear within.
+  the bullet point in the resume. The description and skills appear within this section. Note, you
+  can add project-specific skill descriptions here.
 - **Education**: http://localhost:3000/studio/structure/education add education experience.
 
 #### TODO (work in progress)
