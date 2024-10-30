@@ -6,6 +6,7 @@ import { AllThemeOptions, GET_THEME_OPTIONS } from "@/graphql/getThemeOptions";
 
 import { DataProvider } from "@/context/DataContext";
 import { Education } from "@/components/sections/Education/Education";
+import { ResumeHeading } from "@/components/sections/ResumeHeading";
 import { Skills } from "@/components/sections/Skills/Skills";
 import { WorkExperience } from "@/components/sections/WorkExperience/WorkExperience";
 import { getApolloClient } from "@/lib/apolloClient";
@@ -45,21 +46,11 @@ export default async function Page() {
       education={allEducationData.allEducation}
     >
       <main className={styles.main}>
-        <h1>
-          {allThemeOptionsData.allThemeOptions[0]?.userName}
-          <br />
-          <span className={styles.userTitle}>
-            {allThemeOptionsData.allThemeOptions[0]?.userTitle}
-          </span>
-          <br />
-          <span className={styles.userMeta}>
-            {allThemeOptionsData.allThemeOptions[0]?.userContact}
-            <span className={styles.separator}>|</span>
-            {allThemeOptionsData.allThemeOptions[0]?.userLocation}
-          </span>
-        </h1>
-        <Skills />
-        <WorkExperience />
+        <ResumeHeading themeOptions={allThemeOptionsData.allThemeOptions[0]} />
+        <div className={styles.workExperienceSkills}>
+          <Skills />
+          <WorkExperience />
+        </div>
         <Education />
       </main>
     </DataProvider>

@@ -6,7 +6,6 @@ import React, { MouseEvent, useState } from "react";
 import { DataContext } from "@/context/DataContext";
 import { SkillsCloud } from "./SkillsCloud";
 import { SkillsExperience } from "./SkillsExperience";
-import styles from "./Skills.module.scss";
 import { useContext } from "react";
 
 export const Skills = () => {
@@ -27,7 +26,7 @@ export const Skills = () => {
   };
 
   return (
-    <section className={styles.skillsSection}>
+    <section>
       <h2 className="resumeHeading">Skills</h2>
       <Box>
         Group by:{" "}

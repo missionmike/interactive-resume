@@ -18,30 +18,13 @@
       text-align: left;
     }
   }
-}
 
-.userTitle {
-  display: block;
-  margin-top: 8px;
-  padding-top: 8px;
-  font-weight: normal;
-  font-size: 0.9em;
+  .workExperienceSkills {
+    display: flex;
+    flex-direction: column;
 
-  @media screen and (max-width: $breakpoint_mobile) {
-    border-top: 0;
+    @media screen and (max-width: $breakpoint_mobile) {
+      flex-direction: column-reverse;
+    }
   }
-}
-
-.separator {
-  display: inline-block;
-  font-size: 2rem;
-  font-weight: lighter;
-  margin: 0 1rem;
-  opacity: 0.5;
-}
-
-.userMeta {
-  font-size: 1rem;
-  border: none;
-  font-weight: normal;
 }
