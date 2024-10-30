@@ -44,6 +44,32 @@ Either way, you can always run the local utility `npm run deploy:vercel` to trig
    the Sanity API settings. If you're not allowing your domain to access, the GraphQL requests will
    be blocked.
 
+### Populate Data in Sanity
+
+You can spin up locally with `npm run dev`, then visit http://localhost:3000/studio and sign in with
+your preferred credentials.
+
+From there, visit the following pages to populate data:
+
+-**Theme Options**: http://localhost:3000/studio/structure/themeOptions this is where you can set
+your name, title, location, and other global meta.
+
+- **Skills**: http://localhost:3000/studio/structure/skill this is where you can add skills and
+  years' experience. Each skill includes optional description which would appear to users when they
+  click the skill icon. The Skill Icon can be set as a string based on any icon found here:
+  https://icon-sets.iconify.design/ e.g. `devicon:react`
+- **Companies**: http://localhost:3000/studio/structure/company add companies where you've worked.
+  Values are flexible.
+- **Positions**: http://localhost:3000/studio/structure/position add positions. Each position can be
+  linked to a company. Within each position, you can add Projects. The project's title appears as
+  the bullet point in the resume. The desciprion and skills appear within.
+- **Education**: http://localhost:3000/studio/structure/education add education experience.
+
+#### TODO (work in progress)
+
+This project is a work in progress. To find planned features, visit the
+[Issues](https://github.com/missionmike/interactive-resume/issues) page in GitHub.
+
 ### Fetch Content from Sanity
 
 After setting up Sanity and ensuring GraphQL is published, you an test out your GraphQL endpoint
