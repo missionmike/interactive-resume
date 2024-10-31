@@ -2,6 +2,7 @@ import "./globals.scss";
 
 import { AllThemeOptions, GET_THEME_OPTIONS } from "@/graphql/getThemeOptions";
 
+import { GoogleTagManager } from "@next/third-parties/google";
 import { Layout } from "@/components/Layout/Layout";
 import type { Metadata } from "next";
 import { ThemeAppearanceProvider } from "@/context/ThemeContext";
@@ -63,6 +64,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        {process.env?.GTM_ID ? <GoogleTagManager gtmId={process.env.GTM_ID} /> : null}
         <meta name="viewport" content="initial-scale=1, width=device-width" />
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
