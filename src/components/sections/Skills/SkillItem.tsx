@@ -23,6 +23,7 @@ export const SkillItem = ({ skill }: { skill: SkillWithDescriptionRaw }) => {
           color: theme.palette.primary.main,
           "&.Mui-disabled": {
             color: theme.palette.primary.main,
+            borderColor: "transparent",
           },
         })}
       >
