@@ -93,6 +93,13 @@ local server with `npm run dev`.
 From here, populate your data in the Sanity Studio, then perform a full refresh in the local browser
 to view the changes.
 
+## Adding Analytics
+
+This installation supports Google Tag Manager out of the box. Everything else can be configured
+within Google from there. If other platforms need to be supported, feel free to open a PR!
+
+To support GTM, ensure that the `GTM_ID` value is populated in your environment.
+
 ## Deploying to Vercel
 
 To deploy your Interactive Resume to Vercel, first ensure you have an account and project set up in
@@ -109,6 +116,10 @@ The following environment variables will need to be set in Vercel to match what 
 - `NEXT_PUBLIC_SANITY_DATASET`
 - `NEXT_PUBLIC_SANITY_API_VERSION`
 - `SANITY_GRAPHQL_ENDPOINT`
+
+Optional values:
+
+- `GTM_ID` for Google Tag Manager.
 
 Here is a live example: https://resume.missionmike.dev/
 
