@@ -8,17 +8,6 @@
   margin: 0 auto;
   padding: 16px 0 100px 0;
 
-  h1 {
-    margin-bottom: 32px;
-    text-align: center;
-    line-height: 100%;
-
-    @media screen and (max-width: $breakpoint_mobile) {
-      font-size: 1.5rem;
-      text-align: left;
-    }
-  }
-
   .workExperienceSkills {
     display: flex;
     flex-direction: column;

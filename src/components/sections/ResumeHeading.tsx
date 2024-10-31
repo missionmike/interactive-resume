@@ -3,7 +3,7 @@ import styles from "./ResumeHeading.module.scss";
 
 export const ResumeHeading = ({ themeOptions }: { themeOptions: ThemeOptions }) => {
   return (
-    <h1>
+    <h1 className={styles.userTitleHeading}>
       {themeOptions?.userName}
       <br />
       <span className={styles.userTitle}>{themeOptions?.userTitle}</span>
