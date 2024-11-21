@@ -7,16 +7,9 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import { TypedObject } from "sanity";
-import { createClient } from "@sanity/client";
 import imageUrlBuilder from "@sanity/image-url";
+import { sanityClient } from "@/lib/sanityClient";
 import styles from "./PortableTextCustom.module.scss";
-
-const sanityClient = createClient({
-  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
-  dataset: process.env.NEXT_PUBLIC_SANITY_DATASET,
-  apiVersion: process.env.NEXT_PUBLIC_SANITY_API_VERSION,
-  useCdn: true,
-});
 
 // Re-used builder instance.
 const builder = imageUrlBuilder(sanityClient);

@@ -15,5 +15,8 @@ export const dynamic = "force-static";
 export { metadata, viewport } from "next-sanity/studio";
 
 export default function StudioPage() {
+  if (process.env.NODE_ENV === "production") {
+    return null;
+  }
   return <NextStudio config={config} />;
 }
